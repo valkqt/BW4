@@ -6,7 +6,5 @@
     <p>Sono la content page!</p>
 
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <p>Sono la content page252!</p>
-</asp:Content>
+
 
