@@ -24,7 +24,7 @@ namespace BW4
                 SqlCommand create = new SqlCommand("create table Products" +
                     "(" +
                     "id int NOT NULL IDENTITY," +
-                    "title varchar(100) NOT NULL," +
+                    "title varchar(100) NOT NULL UNIQUE," +
                     "description varchar(max)," +
                     "brand varchar(32)," +
                     "category varchar(32) NOT NULL," +
@@ -75,13 +75,14 @@ namespace BW4
                 }
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Response.Write($"Si è verificato un errore di tipo {ex.GetType().Name}: {ex.Message}");
             }
             finally
             {
                 conn.Close();
             }
-            }
+        }
     }
 }
