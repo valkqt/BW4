@@ -14,7 +14,8 @@
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid gap-5 fw-bold">
-            <a class="navbar-brand ms-5" href="#">Logo Nav</a>
+            <a href="#" class="navbar-brand ms-5 animated flip">PAGAH!</a>
+           <%--<a class="navbar-brand ms-5" href="#">Logo Nav</a> --%> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,7 +43,7 @@
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
                 </ul>
-                <div class="d-flex gap-3">
+                <div class="d-flex gap-3 navbar-icons">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                     </svg>
@@ -71,7 +72,7 @@
         <div>
             <p class="m-0">Copyright © 2024 by Nome Fittizio | Powered by Nome Fittizio</p>
         </div>
-        <div class="d-flex gap-3">
+        <div class="d-flex gap-3 social-network">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
                 <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
             </svg>
