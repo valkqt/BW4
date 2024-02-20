@@ -1,0 +1,17 @@
+﻿.SectionTitle {
+    padding: 30px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid red;
+}
+
+.HomeImage {
+    width: 180px;
+    height: 150px;
+    object-fit: fill;
+    margin-bottom: 20px;
+}
+
+.CategoryCaption {
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}

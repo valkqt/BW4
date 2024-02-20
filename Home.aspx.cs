@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -13,76 +14,58 @@ namespace BW4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Avvio.Start();
+            if (!IsPostBack)
+            {
+                BindData();
+            }
+        }
+        protected void BindData()
+        {
+            // Connect to database
             string connectionString = ConfigurationManager.ConnectionStrings["Products"].ToString();
+            // Query for data
+            string query = @"WITH RankedProducts AS (
+                                SELECT 
+                                    title, 
+                                    category,
+                                    thumbnail,
+                                    ROW_NUMBER() OVER (PARTITION BY p.category ORDER BY p.title) AS RowNum
+                                FROM 
+                                    Products p
+                                )
+                            SELECT TOP 6 category, title, thumbnail 
+                            FROM 
+                                RankedProducts
+                            WHERE 
+                                RowNum = 1;";
+
+            // Get connection
             SqlConnection conn = new SqlConnection(connectionString);
 
             try
             {
                 conn.Open();
+                SqlCommand cmdSelectCategories = new SqlCommand(query, conn);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdSelectCategories);
+                DataTable dataTable = new DataTable();
 
-                SqlCommand create = new SqlCommand("create table Products" +
-                    "(" +
-                    "id int NOT NULL IDENTITY," +
-                    "title varchar(100) NOT NULL UNIQUE," +
-                    "description varchar(max)," +
-                    "brand varchar(32)," +
-                    "category varchar(32) NOT NULL," +
-                    "rating decimal(3,1)," +
-                    "discountPercentage int," +
-                    "stock int NOT NULL," +
-                    "thumbnail varchar(max)," +
-                    "images varchar(max)," +
-                    "price money NOT NULL," +
-                    "PRIMARY KEY (id));", conn);
-                create.ExecuteNonQuery();
-
-            }
-
-            catch
-            {
-                Response.Write("Pepe :(");
-
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            try
-            {
-                conn.Open();
-
-                string ProductString = "";
-
-                foreach (Global.Product product in Global.Storage.storage)
-                {
-                    SqlCommand insert = new SqlCommand("INSERT INTO Products (title, description, brand, category, rating, discountPercentage, stock, thumbnail, images, price) " +
-                        "VALUES (@title, @description, @brand, @category, @rating, @discountPercentage, @stock, @thumbnail, @images, @price)", conn);
-
-                    insert.Parameters.AddWithValue("@title", product.title);
-                    insert.Parameters.AddWithValue("@description", product.description);
-                    insert.Parameters.AddWithValue("@brand", product.brand);
-                    insert.Parameters.AddWithValue("@category", product.category);
-                    insert.Parameters.AddWithValue("@rating", product.rating);
-                    insert.Parameters.AddWithValue("@discountPercentage", Math.Truncate(product.discountPercentage));
-                    insert.Parameters.AddWithValue("@stock", product.stock);
-                    insert.Parameters.AddWithValue("@thumbnail", product.thumbnail);
-                    insert.Parameters.AddWithValue("@images", product.images[0]);
-                    insert.Parameters.AddWithValue("@price", product.price);
-
-                    insert.ExecuteNonQuery();
-                }
+                dataAdapter.Fill(dataTable);
+                CategoriesRepeater.DataSource = dataTable;
+                CategoriesRepeater.DataBind();
 
             }
             catch (Exception ex)
             {
-                Response.Write($"Si è verificato un errore di tipo {ex.GetType().Name}: {ex.Message}");
+                Response.Write(ex.Message);
             }
             finally
             {
                 conn.Close();
+                Response.Write("Connection closed");
             }
+
         }
     }
 }
+
