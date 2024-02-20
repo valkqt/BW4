@@ -84,5 +84,10 @@ namespace BW4
             //    conn.Close();
             //}
         }
+
+        protected void Admin_Btn(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin.aspx");
+        }
     }
 }
