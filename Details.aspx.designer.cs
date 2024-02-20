@@ -84,6 +84,6 @@ namespace BW4
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnAddToCart;
+        protected global::System.Web.UI.WebControls.Button btnAddToCart;
     }
 }
