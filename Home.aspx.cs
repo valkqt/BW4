@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.FriendlyUrls;
 
 namespace BW4
 {
@@ -21,8 +22,21 @@ namespace BW4
                 BindDataNewArrivals(Queries.NewArrivals);
                 BindDataCategories(Queries.Categories);
                 BindDataSpecialDeals(Queries.SpecialDeals);
-            }
-                
+            }       
+        }
+
+        protected void LinkToDetailClick(object sender, EventArgs e)
+        {
+            LinkButton linkBtn = (LinkButton)sender;
+            string argument = linkBtn.CommandArgument;
+            Response.Redirect($"Details.aspx/productId={argument}");
+        }
+
+        protected void BtnToDetailClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string argument = btn.CommandArgument;
+            Response.Redirect($"Details.aspx/productId={argument}");
         }
 
         private void BindDataCategories(string query)

@@ -12,12 +12,14 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
             <asp:Repeater ID="NewArrivalsRepeater" runat="server">
                 <ItemTemplate>
+                    <asp:LinkButton ID="LinkToDetailNewArrivals" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>'>
                     <div class="col text-center">
                         <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="HomeImage" />
                         <p class="CategorySub"><%# Eval ("category") %></p>
                         <h6 class="TitleCaption"><%# Eval ("title") %></h6>
                         <p class="PriceCaption">$ <%# Eval ("price") %></p>
                     </div>
+                    </asp:LinkButton>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
@@ -31,10 +33,12 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
             <asp:Repeater ID="CategoriesRepeater" runat="server">
                 <ItemTemplate>
+                    <asp:LinkButton ID="LinkToDetailCategories" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>'>
                     <div class="col text-center">
                         <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="HomeImage" />
                         <h6 class="CategoryCaption"><%# Eval ("category") %></h6>
                     </div>
+                    </asp:LinkButton>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
@@ -54,7 +58,7 @@
                                 <h4 class="TitleCaption"><%# Eval ("title") %></h4>
                                 <p class="OldPrice">$ <%# Eval ("price") %></p>
                                 <p class="NewPrice">$ <%# Eval ("price") %></p>
-                                <asp:Button ID="BtnShopNow" runat="server" Text="SHOP NOW" CssClass="btn btn-primary" />
+                                <asp:Button ID="BtnShopNow" runat="server" Text="SHOP NOW" CssClass="btn btn-primary" OnClick="BtnToDetailClick" CommandArgument='<%# Eval("id")%>' />
                             </div>
                             <div>
                                 <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="SpecialDealImage" />

@@ -17,7 +17,7 @@ namespace BW4
                                                 FROM 
                                                     Products p
                                                 )
-                                            SELECT TOP 6 category, title, thumbnail 
+                                            SELECT TOP 6 id, category, title, thumbnail 
                                             FROM 
                                                 RankedProducts
                                             WHERE 
