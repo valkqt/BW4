@@ -8,7 +8,7 @@
     <h1>Welcome Admin</h1>
     <asp:Button ID="AdminButton" runat="server" Text="Admin Settings" CssClass="btn btn-warning" OnClick="Admin_Btn" />
     <% } %>
-    <p>Sono la content page!</p>
+    <p>Il contenuto va qua</p>
     <div class="container-fluid">
         <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
