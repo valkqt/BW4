@@ -12,46 +12,35 @@ namespace BW4
 {
     public partial class Home : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Avvio.Start();
             if (!IsPostBack)
             {
-                BindData();
+                BindDataNewArrivals(Queries.NewArrivals);
+                BindDataCategories(Queries.Categories);
+                BindDataSpecialDeals(Queries.SpecialDeals);
             }
+                
         }
-        protected void BindData()
+
+        private void BindDataCategories(string query)
         {
             // Connect to database
             string connectionString = ConfigurationManager.ConnectionStrings["Products"].ToString();
-            // Query for data
-            string query = @"WITH RankedProducts AS (
-                                SELECT 
-                                    title, 
-                                    category,
-                                    thumbnail,
-                                    ROW_NUMBER() OVER (PARTITION BY p.category ORDER BY p.title) AS RowNum
-                                FROM 
-                                    Products p
-                                )
-                            SELECT TOP 6 category, title, thumbnail 
-                            FROM 
-                                RankedProducts
-                            WHERE 
-                                RowNum = 1;";
-
             // Get connection
             SqlConnection conn = new SqlConnection(connectionString);
 
             try
             {
                 conn.Open();
-                SqlCommand cmdSelectCategories = new SqlCommand(query, conn);
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdSelectCategories);
-                DataTable dataTable = new DataTable();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
 
-                dataAdapter.Fill(dataTable);
-                CategoriesRepeater.DataSource = dataTable;
+                dataAdapter.Fill(dataSet);
+                CategoriesRepeater.DataSource = dataSet;
                 CategoriesRepeater.DataBind();
 
             }
@@ -64,8 +53,66 @@ namespace BW4
                 conn.Close();
                 Response.Write("Connection closed");
             }
+        }
+        private void BindDataNewArrivals(string query)
+        {
+            // Connect to database
+            string connectionString = ConfigurationManager.ConnectionStrings["Products"].ToString();
+            // Get connection
+            SqlConnection conn = new SqlConnection(connectionString);
 
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+
+                dataAdapter.Fill(dataSet);
+                NewArrivalsRepeater.DataSource = dataSet;
+                NewArrivalsRepeater.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                Response.Write("Connection closed");
+            }
+        }
+        private void BindDataSpecialDeals(string query)
+        {
+            // Connect to database
+            string connectionString = ConfigurationManager.ConnectionStrings["Products"].ToString();
+            // Get connection
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+
+                dataAdapter.Fill(dataSet);
+                SpecialDealsRepeater.DataSource = dataSet;
+                SpecialDealsRepeater.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                Response.Write("Connection closed");
+            }
         }
     }
 }
+
 

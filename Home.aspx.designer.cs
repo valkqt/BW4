@@ -15,6 +15,15 @@ namespace BW4
     {
 
         /// <summary>
+        /// NewArrivalsRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater NewArrivalsRepeater;
+
+        /// <summary>
         /// CategoriesRepeater control.
         /// </summary>
         /// <remarks>
@@ -22,5 +31,14 @@ namespace BW4
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater CategoriesRepeater;
+
+        /// <summary>
+        /// SpecialDealsRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater SpecialDealsRepeater;
     }
 }

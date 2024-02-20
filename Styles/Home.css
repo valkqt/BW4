@@ -15,3 +15,31 @@
     margin-bottom: 30px;
     text-transform: capitalize;
 }
+
+.SpecialDeal {
+    gap: 70px;
+    padding: 30px;
+    background-image: linear-gradient(90deg, #F97133, #FBA779);
+    color: white;
+}
+
+.SpecialDealImage {
+    width: 400px;
+}
+
+.OldPrice{
+    text-decoration: line-through;
+}
+.NewPrice{
+    margin-bottom: 85px;
+}
+
+.BtnShopNow {
+    border-radius: 0 !important;
+    background-color: #484385 !important;
+}
+
+h4 {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
