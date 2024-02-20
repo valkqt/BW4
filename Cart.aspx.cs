@@ -27,6 +27,7 @@ namespace BW4
                 prodotti = new List<Prodotto>
                 {
                     new Prodotto { NomeProdotto = "Occhiali", Immagine = "https://media.istockphoto.com/id/1417602445/it/foto/occhiali-da-sole-in-colore-dorato-brillante-in-plastica-trasparente-occhiali-vista-dallalto.jpg?s=2048x2048&w=is&k=20&c=xxJ_LjC7ivYgJ3HIkoVmmG5yTpQ3Id4O4GwjwTiiHq0=", Prezzo = 20, Quantita = 1 },
+                    new Prodotto { NomeProdotto = "Giornale", Immagine = "https://media.istockphoto.com/id/1417602445/it/foto/occhiali-da-sole-in-colore-dorato-brillante-in-plastica-trasparente-occhiali-vista-dallalto.jpg?s=2048x2048&w=is&k=20&c=xxJ_LjC7ivYgJ3HIkoVmmG5yTpQ3Id4O4GwjwTiiHq0=", Prezzo = 1, Quantita = 1 },
                     new Prodotto { NomeProdotto = "Banana", Immagine = "https://media.istockphoto.com/id/1417602445/it/foto/occhiali-da-sole-in-colore-dorato-brillante-in-plastica-trasparente-occhiali-vista-dallalto.jpg?s=2048x2048&w=is&k=20&c=xxJ_LjC7ivYgJ3HIkoVmmG5yTpQ3Id4O4GwjwTiiHq0=", Prezzo = 50, Quantita = 1 }
                 };
 
@@ -42,6 +43,7 @@ namespace BW4
             {
                 rptCarrello.DataSource = GetProdotti();
                 rptCarrello.DataBind();
+                CalcolaTotale();
             }
         }
 

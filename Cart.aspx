@@ -25,7 +25,7 @@
         </asp:Repeater>
 
         <div>
-            <h3>Totale: $<asp:Label ID="lblTotale" runat="server">0</asp:Label></h3>
+            <h3>Totale: $<asp:Label ID="lblTotale" runat="server"></asp:Label></h3>
             <div>
                 <label>Hai un coupon?</label>
             </div>
