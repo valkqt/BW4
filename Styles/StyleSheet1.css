@@ -59,13 +59,10 @@ body {
     text-shadow: 2px 2px 0px #ef4d48, 3px 3px 0px rgba(0, 0, 0, 0.6);
 }
 
-.navbar-icons svg:hover, .social-network svg:hover{
+.navbar-icons svg:hover, .social-network svg:hover {
     scale : 2.0;
-    transition : 0.3s;
+    transition: 0.3s;
+    color: red;
 }
 
-.social-network svg path:hover {
-    fill : red;
-    transition: 0.3s;
-}
 
