@@ -3,24 +3,29 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container">
+    <div class="container mt-3">
 
         <div class="row">
             <div class="col">
                 <asp:Image ID="imgProduct" runat="server" />
             </div>
-            <div class="col">
+            <div class="col d-flex flex-column justify-content-center">
                 <asp:Label ID="lblCategory" runat="server" />
-                <br />
-                <asp:Label ID="lblBrand" runat="server" />
-                <asp:Label ID="lblTitle" runat="server" />
-                <br />
-                <asp:Label ID="lblPrice" runat="server" />
-                <br />
+               
+
+                <div>
+                    <asp:Label ID="lblBrand" runat="server" class="fs-3 fw-bold"/>
+                    <asp:Label ID="lblTitle" runat="server" class="fs-3 fw-bold"/>
+                </div>
+
+                <asp:Label ID="lblPrice" runat="server" CssClass="fs-5 fw-bold" />
                 <asp:Label ID="lblDescription" runat="server" />
-                <br />
-                <asp:TextBox ID="txtQuantity" runat="server" Text="1" />
-                <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" OnClick="btnAddToCart_Click" />
+
+                <div class="d-flex mt-2">
+                    <input type="number" id="txtQuantity" runat="server" value="1" size="5" class="me-3"/>
+                    <button type="button" id="btnAddToCart" runat="server" class="btn btn-primary" onclick="btnAddToCart_Click">Add to Cart</button>
+                </div>
+
             </div>
         </div>
 

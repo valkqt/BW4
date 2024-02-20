@@ -39,7 +39,7 @@ namespace BW4
                                 lblCategory.Text = char.ToUpper(upperCategory[0]) + upperCategory.Substring(1);
                                 lblBrand.Text = reader["brand"].ToString();
                                 lblTitle.Text = reader["title"].ToString();
-                                lblPrice.Text = "Price: $" + reader["price"].ToString();
+                                lblPrice.Text = "$" + Convert.ToDecimal(reader["price"]).ToString("0.00");
                                 lblDescription.Text = reader["description"].ToString();
                                 imgProduct.ImageUrl = reader["images"].ToString();
                             }
