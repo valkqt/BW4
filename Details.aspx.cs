@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static BW4.Global;
 
 namespace BW4
 {
@@ -18,6 +19,7 @@ namespace BW4
                 {
                     // id di test 
                     int productId = 1;
+
                     // id dinamico
                     // int productId = Convert.ToInt32(Request.QueryString["productId"]);
 
@@ -52,7 +54,58 @@ namespace BW4
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-           //funzione click sul bottone add to card
+            //id di test
+            int productId = 1;
+
+            //id dinamico
+            // int productId = Convert.ToInt32(Request.QueryString["productId"]);
+
+            int quantity = int.Parse(txtQuantity.Value);
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Products"].ConnectionString;
+            string query = "SELECT brand, category, title, price, description, images FROM Products WHERE id = @id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", productId);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Product product = new Product
+                        {
+                            Id = productId,
+                            Brand = reader["brand"].ToString(),
+                            Category = reader["category"].ToString(),
+                            Title = reader["title"].ToString(),
+                            Price = Convert.ToDecimal(reader["price"]),
+                            Description = reader["description"].ToString(),
+                            ImageUrl = reader["images"].ToString(),
+                            Quantity = quantity
+                        };
+
+                        AddProductToCart(product);
+
+                        Response.Redirect("Cart.aspx");
+                    }
+                    reader.Close();
+                }
+            }
+        }
+        private void AddProductToCart(Product product)
+        {
+            if (Session["Cart"] == null)
+            {
+                Session["Cart"] = new List<Product>();
+            }
+
+            List<Product> cart = (List<Product>)Session["Cart"];
+
+            cart.Add(product);
+
+            Session["Cart"] = cart;
         }
     }
 }
