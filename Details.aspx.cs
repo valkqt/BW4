@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static BW4.Global;
 
 namespace BW4
 {
@@ -18,6 +19,7 @@ namespace BW4
                 {
                     // id di test 
                     int productId = 1;
+
                     // id dinamico
                     // int productId = Convert.ToInt32(Request.QueryString["productId"]);
 
@@ -52,7 +54,28 @@ namespace BW4
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-           //funzione click sul bottone add to card
+            // l'id non viene passato nella class Prodotti (situata nella pagina cart) al momento
+            // int productId = Convert.ToInt32(Request.QueryString["productId"]);
+
+            string productName = lblTitle.Text;
+            string productImage = imgProduct.ImageUrl;
+            double productPrice = Convert.ToDouble(lblPrice.Text.Replace("$", ""));
+            int productQuantity = Convert.ToInt32(txtQuantity.Value);
+
+            Prodotto product = new Prodotto
+            {
+                NomeProdotto = productName,
+                Immagine = productImage,
+                Prezzo = productPrice,
+                Quantita = productQuantity
+            };
+
+            List<Prodotto> prodotti = GetProdotti();
+            prodotti.Add(product);
+
+            Session["Prodotti"] = prodotti;
+
+            Response.Redirect("Cart.aspx");
         }
     }
 }
