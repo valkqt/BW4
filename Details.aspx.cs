@@ -54,28 +54,58 @@ namespace BW4
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            // l'id non viene passato nella class Prodotti (situata nella pagina cart) al momento
+            //id di test
+            int productId = 1;
+
+            //id dinamico
             // int productId = Convert.ToInt32(Request.QueryString["productId"]);
 
-            string productName = lblTitle.Text;
-            string productImage = imgProduct.ImageUrl;
-            double productPrice = Convert.ToDouble(lblPrice.Text.Replace("$", ""));
-            int productQuantity = Convert.ToInt32(txtQuantity.Value);
+            int quantity = int.Parse(txtQuantity.Value);
 
-            Prodotto product = new Prodotto
+            string connectionString = ConfigurationManager.ConnectionStrings["Products"].ConnectionString;
+            string query = "SELECT brand, category, title, price, description, images FROM Products WHERE id = @id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                NomeProdotto = productName,
-                Immagine = productImage,
-                Prezzo = productPrice,
-                Quantita = productQuantity
-            };
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", productId);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Product product = new Product
+                        {
+                            Id = productId,
+                            Brand = reader["brand"].ToString(),
+                            Category = reader["category"].ToString(),
+                            Title = reader["title"].ToString(),
+                            Price = Convert.ToDecimal(reader["price"]),
+                            Description = reader["description"].ToString(),
+                            ImageUrl = reader["images"].ToString(),
+                            Quantity = quantity
+                        };
 
-            List<Prodotto> prodotti = GetProdotti();
-            prodotti.Add(product);
+                        AddProductToCart(product);
 
-            Session["Prodotti"] = prodotti;
+                        Response.Redirect("Cart.aspx");
+                    }
+                    reader.Close();
+                }
+            }
+        }
+        private void AddProductToCart(Product product)
+        {
+            if (Session["Cart"] == null)
+            {
+                Session["Cart"] = new List<Product>();
+            }
 
-            Response.Redirect("Cart.aspx");
+            List<Product> cart = (List<Product>)Session["Cart"];
+
+            cart.Add(product);
+
+            Session["Cart"] = cart;
         }
     }
 }
