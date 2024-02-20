@@ -14,22 +14,22 @@
                     <span><%# Eval("NomeProdotto") %></span>
                     <span>Prezzo: $<%# Eval("Prezzo", "{0:F2}") %></span>
                     <span>Quantità:
-                            <asp:Button runat="server" Text="-" />
+                        <asp:Button runat="server" Text="-" OnClick="DecrementaQuantita" CommandArgument='<%# Container.ItemIndex %>' />
                         <asp:Label runat="server" ID="lblQuantita" Text='<%# Eval("Quantita") %>'></asp:Label>
-                        <asp:Button runat="server" Text="+" />
+                        <asp:Button runat="server" Text="+" OnClick="IncrementaQuantita" CommandArgument='<%# Container.ItemIndex %>' />
                     </span>
                     <span>Subtotale: $<%# Eval("Subtotale", "{0:F2}") %></span>
-                    <asp:Button runat="server" Text="Elimina" />
+                    <asp:Button runat="server" Text="Elimina" OnClick="EliminaProdotto" CommandArgument='<%# Container.ItemIndex %>' />
                 </div>
             </ItemTemplate>
         </asp:Repeater>
 
         <div>
-            <h3>Totale: $<asp:Label ID="lblTotale" runat="server"></asp:Label></h3>
+            <h3>Totale: $<asp:Label ID="lblTotale" runat="server">0</asp:Label></h3>
             <div>
                 <label>Hai un coupon?</label>
             </div>
-            <asp:Button ID="btnProcediAcquisto" Text="Procedi all'acquisto" OnClick="btnProcediAcquisto_Click" />
+            <asp:Button ID="btnProcediAcquisto" runat="server" Text="Procedi all'acquisto"/>
         </div>
 
     </div>
@@ -37,3 +37,4 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>
+
