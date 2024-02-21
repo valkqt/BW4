@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <% if (Session["username"] != null && Session["username"].ToString() == "admin")
-        { %>
+     <% if (Session["username"] != null && Session["username"].ToString() == "admin" && Session["password"] != null && Session["password"].ToString() == "admin")
+     { %>
     <h1>Welcome Admin</h1>
-    <asp:Button ID="AdminButton" runat="server" Text="Admin Settings" CssClass="btn btn-warning" OnClick="Admin_Btn" />
+    <asp:Button ID="AdminButton" runat="server" Text="Admin Settings" CssClass="btn btn-warning fw-bold" OnClick="Admin_Btn" />
     <% } %>
     <div class="container">
         <div class="d-flex justify-content-center">
