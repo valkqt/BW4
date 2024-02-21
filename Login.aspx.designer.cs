@@ -42,6 +42,15 @@ namespace BW4
         protected global::System.Web.UI.WebControls.TextBox TxtUsername;
 
         /// <summary>
+        /// Controllo RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// Controllo LblPassword.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,15 @@ namespace BW4
         protected global::System.Web.UI.WebControls.TextBox TxtPassword;
 
         /// <summary>
+        /// Controllo RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
         /// Controllo CheckBox1.
         /// </summary>
         /// <remarks>
@@ -76,23 +94,5 @@ namespace BW4
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonLogin;
-
-        /// <summary>
-        /// Controllo ButtonBack.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBack;
-
-        /// <summary>
-        /// Controllo ButtonLogout.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonLogout;
     }
 }
