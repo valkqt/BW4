@@ -22,7 +22,7 @@ namespace BW4
                 BindDataNewArrivals(Queries.NewArrivals);
                 BindDataCategories(Queries.Categories);
                 BindDataSpecialDeals(Queries.SpecialDeals);
-            }       
+            }
         }
 
         protected void LinkToDetailClick(object sender, EventArgs e)
@@ -51,10 +51,13 @@ namespace BW4
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                DataSet dataSet = new DataSet();
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                RoundMoney(dataTable, "price");
 
-                dataAdapter.Fill(dataSet);
-                CategoriesRepeater.DataSource = dataSet;
+
+
+                CategoriesRepeater.DataSource = dataTable;
                 CategoriesRepeater.DataBind();
 
             }
@@ -80,10 +83,10 @@ namespace BW4
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                DataSet dataSet = new DataSet();
-
-                dataAdapter.Fill(dataSet);
-                NewArrivalsRepeater.DataSource = dataSet;
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                RoundMoney(dataTable, "price");
+                NewArrivalsRepeater.DataSource = dataTable;
                 NewArrivalsRepeater.DataBind();
 
             }
@@ -109,10 +112,12 @@ namespace BW4
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                DataSet dataSet = new DataSet();
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                RoundMoney(dataTable, "price");
 
-                dataAdapter.Fill(dataSet);
-                SpecialDealsRepeater.DataSource = dataSet;
+
+                SpecialDealsRepeater.DataSource = dataTable;
                 SpecialDealsRepeater.DataBind();
 
             }
@@ -130,6 +135,23 @@ namespace BW4
         protected void Admin_Btn(object sender, EventArgs e)
         {
             Response.Redirect("Admin.aspx");
+        }
+
+        private void RoundMoney(DataTable dataTable, string toRound)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row[toRound] != DBNull.Value)
+                {
+                    decimal moneyValue = Convert.ToDecimal(row[toRound]);
+                    row[toRound] = Math.Round(moneyValue, 2);
+                    Response.Write(moneyValue);
+                }
+                else
+                {
+                    Response.Write("Not working");
+                }
+            }
         }
     }
 }
