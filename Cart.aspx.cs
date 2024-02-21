@@ -36,7 +36,7 @@ namespace BW4
         }
         protected void DecrementaQuantita(object sender, EventArgs e)
         {
-            Button btnDecrementa = (Button)sender;
+            LinkButton btnDecrementa = (LinkButton)sender;
             int indice = int.Parse(btnDecrementa.CommandArgument);
 
             List<Product> carrello = Session["Cart"] as List<Product>;
@@ -48,7 +48,7 @@ namespace BW4
 
         protected void IncrementaQuantita(object sender, EventArgs e)
         {
-            Button btnIncrementa = (Button)sender;
+            LinkButton btnIncrementa = (LinkButton)sender;
             int indice = int.Parse(btnIncrementa.CommandArgument);
 
             List<Product> carrello = Session["Cart"] as List<Product>;
@@ -60,7 +60,7 @@ namespace BW4
 
         protected void EliminaProdotto(object sender, EventArgs e)
         {
-            Button btnElimina = (Button)sender;
+            LinkButton btnElimina = (LinkButton)sender;
             int indice = int.Parse(btnElimina.CommandArgument);
 
             List<Product> carrello = Session["Cart"] as List<Product>;
@@ -69,6 +69,7 @@ namespace BW4
 
             PopolaCarrello();
         }
+
 
         protected void btnProcediAcquisto_Click(object sender, EventArgs e)
         {
