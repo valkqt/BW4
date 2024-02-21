@@ -181,6 +181,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Styles\Details.css" />
     <Content Include="Styles\Home.css" />
     <Content Include="Styles\StyleSheet1.css" />
     <Content Include="Styles\Login.css" />
