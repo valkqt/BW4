@@ -13,11 +13,12 @@ namespace BW4
                                                     title, 
                                                     category,
                                                     thumbnail,
+                                                    price,
                                                     ROW_NUMBER() OVER (PARTITION BY p.category ORDER BY NEWID()) AS RowNum
                                                 FROM 
                                                     Products p
                                                 )
-                                            SELECT TOP 6 id, category, title, thumbnail 
+                                            SELECT TOP 6 id, category, title, thumbnail, price 
                                             FROM 
                                                 RankedProducts
                                             WHERE 
