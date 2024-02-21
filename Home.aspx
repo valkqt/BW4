@@ -47,9 +47,12 @@
             <asp:Repeater ID="CategoriesRepeater" runat="server">
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkToDetailCategories" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>' CssClass="LinkButton">
-                    <div class="col text-center">
+                    <div class="col text-center mb-3">
                         <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="HomeImage" />
-                        <h6 class="CategoryCaption" style="text-transform: uppercase; color: #413E65; opacity: 0.9;"><%# Eval ("category") %></h6>
+                        <h6 class="CategoryCaption mb-2" style="text-transform: uppercase; color: #413E65; opacity: 0.9;"><%# Eval ("category") %></h6>
+                        <div class="d-flex justify-content-center">
+                            <div class="CategoryBorder"></div>
+                        </div>
                     </div>
                     </asp:LinkButton>
                 </ItemTemplate>
@@ -77,7 +80,8 @@
                                     <p class="OldPrice">$<%# Eval ("price") %></p>
                                     <p class="NewPrice">$<%# Eval ("discountedPrice") %></p>
                                 </div>
-                                <asp:Button ID="BtnShopNow" runat="server" Text="SHOP NOW" CssClass="btn btn-primary" OnClick="BtnToDetailClick" CommandArgument='<%# Eval("id")%>' Style="border-radius: 0px; border: none; font-weight: 700; font-size: 0.8rem; padding: 15px 20px; background-color: #484385" />
+                                <asp:Button ID="BtnShopNow" runat="server" Text="SHOP NOW" CssClass="btn btn-primary" OnClick="BtnToDetailClick" CommandArgument='<%# Eval("id")%>' Style="border-radius: 0px; border: none; font-weight: 700; font-size: 0.8rem; padding: 15px 20px; background-color: #484385" onmouseover="this.style.backgroundColor='#F25C54'"
+                                    onmouseout="this.style.backgroundColor='#484385'" />
                             </div>
                             <div>
                                 <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="SpecialDealImage" />
