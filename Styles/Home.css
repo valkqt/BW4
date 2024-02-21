@@ -1,7 +1,66 @@
-﻿.SectionTitle {
-    padding: 30px;
+﻿body {
+    background-color: #FDF6F6;
+}
+
+.LinkButton {
+    color: #413E65;
+    text-transform: capitalize;
+}
+
+.CategorySub {
+    font-size: 0.8rem;
+    color: #C0BAC4;
+}
+
+.TitleCaption {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #413E65;
+}
+
+.PriceCaption {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #413E65;
+}
+
+.CategoryCaption {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.SpecialDealTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.OldPrice {
+    text-decoration: line-through;
+    margin-bottom: 2px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.NewPrice {
+    margin-bottom: 80px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
+
+.SectionTitle {
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: bold;
+    color: #413E65;
+}
+
+.SectionBorder {
     margin-bottom: 50px;
-    border-bottom: 2px solid red;
+    border-top: 5px solid #F25C54;
+    width: 80px;
 }
 
 .HomeImage {
@@ -19,25 +78,61 @@
 .SpecialDeal {
     gap: 70px;
     padding: 30px;
-    background-image: linear-gradient(90deg, #F97133, #FBA779);
+    background-image: linear-gradient(270deg, #F1CFDD, #ECAEC8);
     color: white;
 }
 
 .SpecialDealImage {
-    width: 400px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
 }
 
-.OldPrice{
-    text-decoration: line-through;
-}
-.NewPrice{
-    margin-bottom: 85px;
+@media screen and (min-width: 768px) {
+    .SpecialDealImage {
+        width: 300px;
+        height: 300px;
+    }
+    .NewPrice {
+        margin-bottom: 130px;
+    }
 }
 
-.BtnShopNow {
-    border-radius: 0 !important;
-    background-color: #484385 !important;
+@media screen and (min-width: 992px) {
+    .SpecialDealImage {
+        width: 250px;
+        height: 250px;
+    }
+    .SpecialDeal{
+        gap:40px;
+    }
+    .NewPrice {
+        margin-bottom: 80px;
+    }
 }
+
+@media screen and (min-width: 1200px) {
+    .SpecialDealImage {
+        width: 300px;
+        height: 300px;
+    }
+
+    .NewPrice {
+        margin-bottom: 130px;
+    }
+}
+}
+@media screen and (min-width: 1400px) {
+
+
+    .SpecialDeal {
+        gap: 70px;
+    }
+}
+}
+
+
+
 
 h4 {
     margin-top: 10px;

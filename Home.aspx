@@ -3,16 +3,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <% if (Session["username"] != null && Session["username"].ToString() == "admin")
+        { %>
+    <h1>Welcome Admin</h1>
+    <asp:Button ID="AdminButton" runat="server" Text="Admin Settings" CssClass="btn btn-warning" OnClick="Admin_Btn" />
+    <% } %>
     <div class="container">
         <div class="d-flex justify-content-center">
             <h3 class="SectionTitle">New Arrivals</h3>
         </div>
+        <div class="d-flex justify-content-center">
+            <div class="SectionBorder">
+            </div>
+        </div>
     </div>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
             <asp:Repeater ID="NewArrivalsRepeater" runat="server">
                 <ItemTemplate>
-                    <asp:LinkButton ID="LinkToDetailNewArrivals" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>'>
+                    <asp:LinkButton ID="LinkToDetailNewArrivals" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>' CssClass="LinkButton">
                     <div class="col text-center">
                         <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="HomeImage" />
                         <p class="CategorySub"><%# Eval ("category") %></p>
@@ -28,15 +37,19 @@
         <div class="d-flex justify-content-center">
             <h3 class="SectionTitle">Shop by Categories</h3>
         </div>
+        <div class="d-flex justify-content-center">
+            <div class="SectionBorder">
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
             <asp:Repeater ID="CategoriesRepeater" runat="server">
                 <ItemTemplate>
-                    <asp:LinkButton ID="LinkToDetailCategories" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>'>
+                    <asp:LinkButton ID="LinkToDetailCategories" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>' CssClass="LinkButton">
                     <div class="col text-center">
                         <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="HomeImage" />
-                        <h6 class="CategoryCaption"><%# Eval ("category") %></h6>
+                        <h6 class="CategoryCaption" style="text-transform: uppercase; color: #413E65; opacity: 0.9;"><%# Eval ("category") %></h6>
                     </div>
                     </asp:LinkButton>
                 </ItemTemplate>
@@ -47,18 +60,22 @@
         <div class="d-flex justify-content-center">
             <h3 class="SectionTitle">Special Offers &amp; Deals</h3>
         </div>
+        <div class="d-flex justify-content-center">
+            <div class="SectionBorder">
+            </div>
+        </div>
     </div>
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2">
+        <div class="row row-cols-1 row-cols-lg-2">
             <asp:Repeater ID="SpecialDealsRepeater" runat="server">
                 <ItemTemplate>
-                    <div class="col text-center">
-                        <div class="d-flex justify-content-center SpecialDeal">
+                    <div class="col mb-4">
+                        <div class="d-flex justify-content-center SpecialDeal align-items-center">
                             <div>
-                                <h4 class="TitleCaption"><%# Eval ("title") %></h4>
+                                <h4 class="SpecialDealTitle"><%# Eval ("title") %></h4>
                                 <p class="OldPrice">$ <%# Eval ("price") %></p>
                                 <p class="NewPrice">$ <%# Eval ("price") %></p>
-                                <asp:Button ID="BtnShopNow" runat="server" Text="SHOP NOW" CssClass="btn btn-primary" OnClick="BtnToDetailClick" CommandArgument='<%# Eval("id")%>' />
+                                <asp:Button ID="BtnShopNow" runat="server" Text="SHOP NOW" CssClass="btn btn-primary" OnClick="BtnToDetailClick" CommandArgument='<%# Eval("id")%>' style="border-radius: 0px; border:none; font-weight: 700; font-size: 0.8rem; padding: 15px 20px; background-color: #484385" />
                             </div>
                             <div>
                                 <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="SpecialDealImage" />
@@ -100,21 +117,8 @@
             </div>
         </div>
     </div>
-    <% if (Session["username"] != null && Session["username"].ToString() == "admin")
-        { %>
-    <h1>Welcome Admin</h1>
-    <asp:Button ID="AdminButton" runat="server" Text="Admin Settings" CssClass="btn btn-warning" OnClick="Admin_Btn" />
-    <% } %>
-    <p>Il contenuto va qua</p>
-    <div class="container-fluid">
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><a href="#" class="text-black text-decoration-none">Prodotto bello</a></h5>
-                <p class="card-text"><span class='badge bg-success'>100$</span></p>
-            </div>
-        </div>
-    </div>
+
+
 
 
 </asp:Content>

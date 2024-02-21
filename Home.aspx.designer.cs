@@ -15,6 +15,15 @@ namespace BW4
     {
 
         /// <summary>
+        /// AdminButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AdminButton;
+
+        /// <summary>
         /// NewArrivalsRepeater control.
         /// </summary>
         /// <remarks>
@@ -40,14 +49,5 @@ namespace BW4
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater SpecialDealsRepeater;
-
-        /// <summary>
-        /// Controllo AdminButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AdminButton;
     }
 }
