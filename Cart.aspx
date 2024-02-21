@@ -36,6 +36,7 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+        </div>
 
         <div style="flex-basis: 30% !important"">
         <div class="card">
