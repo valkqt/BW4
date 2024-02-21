@@ -184,6 +184,7 @@
     <Content Include="Styles\Details.css" />
     <Content Include="Styles\Home.css" />
     <Content Include="Styles\StyleSheet1.css" />
+    <Content Include="Styles\Login.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
