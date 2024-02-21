@@ -115,7 +115,7 @@ namespace BW4
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 RoundMoney(dataTable, "price");
-
+                AddDiscountedPrice(dataTable);
 
                 SpecialDealsRepeater.DataSource = dataTable;
                 SpecialDealsRepeater.DataBind();
@@ -151,6 +151,17 @@ namespace BW4
                 {
                     Response.Write("Not working");
                 }
+            }
+        }
+        private void AddDiscountedPrice(DataTable dataTable)
+        {
+            dataTable.Columns.Add("discountedPrice", typeof(decimal));
+            foreach(DataRow row in dataTable.Rows)
+            {
+                decimal fullPrice = Convert.ToDecimal(row["price"]);
+                decimal discount = Convert.ToDecimal(row["discountPercentage"]);
+                decimal discountedPrice = fullPrice - Math.Round((fullPrice * discount) / 100, 2);
+                row["discountedPrice"] = discountedPrice.ToString();
             }
         }
     }
