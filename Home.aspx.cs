@@ -29,14 +29,14 @@ namespace BW4
         {
             LinkButton linkBtn = (LinkButton)sender;
             string argument = linkBtn.CommandArgument;
-            Response.Redirect($"Details.aspx/productId={argument}");
+            Response.Redirect($"Details.aspx/?productId={argument}");
         }
 
         protected void BtnToDetailClick(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             string argument = btn.CommandArgument;
-            Response.Redirect($"Details.aspx/productId={argument}");
+            Response.Redirect($"Details.aspx/?productId={argument}");
         }
 
         private void BindDataCategories(string query)
