@@ -23,7 +23,7 @@
 
                 <div class="d-flex mt-2">
                     <input type="number" id="txtQuantity" runat="server" value="1" size="5" class="me-3"/>
-                    <button type="button" id="btnAddToCart" runat="server" class="btn btn-primary" onclick="btnAddToCart_Click">Add to Cart</button>
+                    <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" CssClass="btn btn-primary" OnClick="btnAddToCart_Click" />
                 </div>
 
             </div>

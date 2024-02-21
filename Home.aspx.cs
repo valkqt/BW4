@@ -126,6 +126,11 @@ namespace BW4
                 Response.Write("Connection closed");
             }
         }
+
+        protected void Admin_Btn(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin.aspx");
+        }
     }
 }
 
