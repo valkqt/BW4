@@ -23,11 +23,6 @@ namespace BW4
             Response.Redirect("Home.aspx");
         }
 
-        protected void Btn_Back(object sender, EventArgs e)
-        {
-            Response.Redirect("Home.aspx");
-        }
-
         protected void Btn_Logout(object sender, EventArgs e)
         {
             Session["username"] = null;

@@ -1,0 +1,26 @@
+﻿#form-container {
+    background-color : blanchedalmond;
+}
+
+.textbox {
+    background-color: blanchedalmond;
+    border-color: deeppink;
+    box-shadow: inset 0px 0px 2px deeppink;
+}
+
+.textbox:focus {
+    transition: 0.4s;
+    background-color: pink;
+    box-shadow: 0px 0px 6px deeppink;
+}
+
+.error-message {
+    font-weight : bold;
+    color : red;
+}
+
+.btn:hover {
+    box-shadow: 0.4rem 0.4rem 0 black;
+    transform: translate(-0.4rem, -0.4rem);
+    transition: 0.3s
+}

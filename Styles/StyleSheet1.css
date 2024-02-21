@@ -54,17 +54,27 @@ body {
 
 
 .navbar-brand {
-    color: #1c0d78;
+    color: black;
     letter-spacing: .2em;
     text-shadow: 2px 2px 0px #ef4d48, 3px 3px 0px rgba(0, 0, 0, 0.6);
 }
 
 .navbar-icons svg:hover, .social-network svg:hover {
-    scale : 2.0;
+    scale: 2.0;
     transition: 0.3s;
-    color: red;
+    color: #ef4d48;
 }
 
+.modal-content {
+    color: #1c0d78;
+    background-color: blanchedalmond;
+}
+
+.btn:hover {
+    box-shadow: 0.4rem 0.4rem 0 black;
+    transform: translate(-0.4rem, -0.4rem);
+    transition: 0.3s
+}
 
 
 
