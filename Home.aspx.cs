@@ -16,6 +16,12 @@ namespace BW4
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["logout"] == "true")
+            {
+                Session["username"] = null;
+                Session["password"] = null;
+                Response.Redirect("Home.aspx");
+            }
             // Avvio.Start();
             if (!IsPostBack)
             {
@@ -129,7 +135,7 @@ namespace BW4
 
         protected void Admin_Btn(object sender, EventArgs e)
         {
-            Response.Redirect("Admin.aspx");
+            Response.Redirect("BackOffice.aspx");
         }
     }
 }

@@ -22,12 +22,5 @@ namespace BW4
             Session["password"] = password;
             Response.Redirect("Home.aspx");
         }
-
-        protected void Btn_Logout(object sender, EventArgs e)
-        {
-            Session["username"] = null;
-            Session["password"] = null;
-            Response.Redirect("Home.aspx");
-        }
     }
 }

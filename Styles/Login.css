@@ -4,14 +4,23 @@
 
 .textbox {
     background-color: blanchedalmond;
-    border-color: deeppink;
-    box-shadow: inset 0px 0px 2px deeppink;
+    border-color: #2b161b;
+    box-shadow: inset 0px 0px 2px #2b161b;
 }
 
 .textbox:focus {
     transition: 0.4s;
     background-color: pink;
-    box-shadow: 0px 0px 6px deeppink;
+    box-shadow: 0px 0px 6px #2b161b;
+}
+
+.btn-login {
+    background-color: #8c0b5c;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #d90700;
 }
 
 .error-message {
@@ -20,7 +29,11 @@
 }
 
 .btn:hover {
-    box-shadow: 0.4rem 0.4rem 0 black;
-    transform: translate(-0.4rem, -0.4rem);
+    box-shadow: 0.2rem 0.2rem 0 black;
+    transform: translate(-0.2rem, -0.2rem);
     transition: 0.3s
+}
+
+.btn-login:hover {
+    background-color: #8c0b5c;
 }
