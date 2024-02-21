@@ -43,6 +43,7 @@ namespace BW4
                     }
                 }
 
+                //questa è la loigca per le 4 cards randomiche di sotto
                 string category = GetProductCategory(productId);
 
                 List<Product> relatedProducts = GetRandomProductsByCategory(category, 4);
@@ -148,6 +149,14 @@ namespace BW4
 
             return products;
         }
+
+        protected void LinkButtonDetail_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string productId = btn.CommandArgument;
+            Response.Redirect($"Details.aspx/?productId={productId}");
+        }
+
 
         private void AddProductToCart(Product product)
         {

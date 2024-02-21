@@ -30,14 +30,14 @@
         <div class="row mt-5">
             <asp:Repeater ID="RelatedRepeater" runat="server">
                 <ItemTemplate>
-                    <div class="col">
+                    <asp:LinkButton ID="LinkButtonDetail" CssClass="col" runat="server" OnClick="LinkButtonDetail_Click" CommandArgument='<%# Eval("id") %>'>
                         <div class="col text-center">
                             <img src='<%# Eval("ImageUrl") %>' class="HomeImage" />
                             <p class="CategorySub"><%# Eval("Category") %></p>
                             <h6 class="TitleCaption"><%# Eval("Title") %></h6>
                             <p class="PriceCaption">$<%# Eval("Price") %></p>
                         </div>
-                    </div>
+                    </asp:LinkButton>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
