@@ -71,7 +71,6 @@ namespace BW4
             finally
             {
                 conn.Close();
-                Response.Write("Connection closed");
             }
         }
         private void BindDataNewArrivals(string query)
@@ -100,7 +99,7 @@ namespace BW4
             finally
             {
                 conn.Close();
-                Response.Write("Connection closed");
+               
             }
         }
         private void BindDataSpecialDeals(string query)
@@ -129,7 +128,7 @@ namespace BW4
             finally
             {
                 conn.Close();
-                Response.Write("Connection closed");
+           
             }
         }
 
