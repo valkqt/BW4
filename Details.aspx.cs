@@ -154,7 +154,7 @@ namespace BW4
         {
             LinkButton btn = (LinkButton)sender;
             string productId = btn.CommandArgument;
-            Response.Redirect($"Details.aspx/?productId={productId}");
+            Response.Redirect($"~/Details.aspx/?productId={productId}");
         }
 
 
