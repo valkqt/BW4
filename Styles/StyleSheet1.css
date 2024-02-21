@@ -65,4 +65,11 @@ body {
     color: red;
 }
 
+/* CART */
+
+.cane {
+    background-color: red!important;
+    font-size: 50px;
+}
+
 
