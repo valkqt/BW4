@@ -73,7 +73,7 @@ namespace BW4
         protected void btnProcediAcquisto_Click(object sender, EventArgs e)
         {
             // c'è da creare la apgina checkout ancora
-            // Response.Redirect("Checkout.aspx");
+            // Response.Redirect("/Checkout.aspx");
         }
     }
 }
