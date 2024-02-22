@@ -73,9 +73,9 @@ namespace BW4
                 }
 
             }
-            catch (Exception ex)
+            catch
             {
-
+                //Response.Write($"Si è verificato un errore di tipo {ex.GetType().Name}: {ex.Message}");
             }
             finally
             {

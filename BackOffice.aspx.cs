@@ -176,6 +176,8 @@ namespace BW4
 
                 insert.ExecuteNonQuery();
                 SuccessBox.Visible = true;
+                ShowData();
+
 
 
             }
