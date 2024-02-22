@@ -46,13 +46,16 @@
                 <div class="card">
                     <div class="list-group list-group-flush">
                         <ul class="p-0 mb-0">
-                            <li class="fs-5 fw-bold list-group-item">Totale Carrello:</li>
+                            <li class="fs-5 fw-bold list-group-item">Cart total:</li>
                             <li class="fs-5 list-group-item"><span class="me-2">$</span><asp:Label ID="lblTotale" runat="server"></asp:Label></li>
-                            <li class="list-group-item">Hai un coupon?</li>
+                            <li class="list-group-item">Do you have a coupon?</li>
                         </ul>
                     </div>
                 </div>
-                <asp:Button ID="btnProcediAcquisto" runat="server" Text="PROCEDI ALL'ACQUISTO" CssClass="mt-2 w-100 btn btn-danger p-3 fs-4" />
+                <a href="Checkout.aspx" class="mt-2 w-100 btn btn-danger p-3 fs-4">
+    PROCEED TO CHECKOUT
+</a>
+
             </div>
         </div>
     </div>
