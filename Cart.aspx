@@ -10,7 +10,7 @@
             <div class="col-md-8">
                 <asp:Repeater ID="rptCarrello" runat="server">
                     <ItemTemplate>
-                        <div class="card me-2">
+                        <div class="card me-2 mb-2">
                             <div class="card-body d-flex align-items-center flex-row justify-content-between">
                                 <img src='<%# Eval("ImageUrl") %>' alt='<%# Eval("Title") %>' class="img-fluid" width="100" height="100" />
                                 <span class="fw-bold fs-5 text-danger"><%# Eval("Title") %></span>
@@ -23,13 +23,16 @@
                                     </asp:LinkButton>
                                     <asp:Label runat="server" ID="lblQuantita" Text='<%# Eval("Quantity") %>' CssClass="mx-2"></asp:Label>
                                     <asp:LinkButton runat="server" OnClick="IncrementaQuantita" CommandArgument='<%# Container.ItemIndex %>' CssClass="btn btn-outline-secondary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
 </svg>
                                     </asp:LinkButton>
                                 </span>
                                 <span>Tot: $<%# (Convert.ToDecimal(Eval("Price")) * Convert.ToInt32(Eval("Quantity"))).ToString("0.00") %></span>
-                                <asp:LinkButton CssClass="btn btn-outline-secondary btn-sm rounded-circle small p-1 d-flex justify-content-center align-content-center" runat="server" Text="X" OnClick="EliminaProdotto" CommandArgument='<%# Container.ItemIndex %>'>
+                                <asp:LinkButton CssClass="btn btn-outline-secondary btn-sm rounded-circle small p-1 d-flex justify-content-center align-content-center" runat="server" OnClick="EliminaProdotto" CommandArgument='<%# Container.ItemIndex %>'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+</svg>
                                 </asp:LinkButton>
                             </div>
                         </div>
