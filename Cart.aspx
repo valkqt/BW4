@@ -52,7 +52,7 @@
                         </ul>
                     </div>
                 </div>
-                <a href="Checkout.aspx" class="mt-2 w-100 btn btn-danger p-3 fs-4">
+                <a href="/Checkout.aspx" class="mt-2 w-100 btn btn-danger p-3 fs-4">
     PROCEED TO CHECKOUT
 </a>
 
