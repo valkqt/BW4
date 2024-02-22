@@ -3,12 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <div id="hero" class="text-center position-relative">
+        <iframe src="https://www.youtube.com/embed/l8zwZZEpe0w?autoplay=1&mute=1&controls=0&fullscreen=1&start=15" id="youtube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <h1 class="text-white" id="heroText">Your personal shopping website where "Paghi e basta, non compri niente"</h1>
+    </div>
+
      <% if (Session["username"] != null && Session["username"].ToString() == "admin" && Session["password"] != null && Session["password"].ToString() == "admin")
      { %>
     <h1>Welcome Admin</h1>
     <asp:Button ID="AdminButton" runat="server" Text="Admin Settings" CssClass="btn btn-warning fw-bold" OnClick="Admin_Btn" />
     <% } %>
-    <div class="container">
+    <div class="container-fluid">
         <div class="d-flex justify-content-center">
             <h3 class="SectionTitle">New Arrivals</h3>
         </div>
