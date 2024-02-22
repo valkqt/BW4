@@ -22,13 +22,19 @@ namespace BW4
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("~/Home.aspx");
+            }
+            if (Session["username"].ToString() != "admin")
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+
             if (!IsPostBack)
             {
                 ShowData();
             }
-
-
-
         }
 
         protected void GridView1_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
@@ -40,17 +46,30 @@ namespace BW4
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            con = new SqlConnection(connectionString);
-            con.Open();
-            Label id = GridView1.Rows[e.RowIndex].FindControl("lbl_id") as Label;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                con.Open();
+                Label id = GridView1.Rows[e.RowIndex].FindControl("lbl_id") as Label;
 
-            SqlCommand cmd = new SqlCommand($"delete from Products where id={id.Text}", con);
-            cmd.ExecuteNonQuery();
-            GridView1.DataBind();
-            con.Close();
-            GridView1.EditIndex = -1;
+                SqlCommand cmd = new SqlCommand($"delete from Products where id={id.Text}", con);
+                cmd.ExecuteNonQuery();
+                GridView1.DataBind();
+                con.Close();
+                GridView1.EditIndex = -1;
 
-            ShowData();
+                ShowData();
+            }
+            catch (Exception ex)
+            {
+                ErrorBox.Visible = true;
+                lbl_error.Text = "Error: " + ex.Message;
+
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         protected void GridView1_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
@@ -64,21 +83,33 @@ namespace BW4
             TextBox description = GridView1.Rows[e.RowIndex].FindControl("lbl_description") as TextBox;
             TextBox stock = GridView1.Rows[e.RowIndex].FindControl("lbl_stock") as TextBox;
 
+            try
+            {
+                con = new SqlConnection(connectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Update Products set title='" + title.Text +
+                    "',price='" + price.Text.Replace(',', '.') +
+                    "',description='" + description.Text +
+                    "',stock='" + stock.Text +
+                    "',discountPercentage='" + discount.Text +
+                    "',brand='" + brand.Text +
+                    "',category='" + category.Text +
+                    "' where id=" + Convert.ToInt32(id.Text), con);
+                cmd.ExecuteNonQuery();
+                GridView1.EditIndex = -1;
+                ShowData();
+            }
+            catch (Exception ex)
+            {
+                ErrorBox.Visible = true;
+                lbl_error.Text = "Error: " + ex.Message;
 
-            con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("Update Products set title='" + title.Text +
-                "',price='" + price.Text.Replace(',', '.') +
-                "',description='" + description.Text +
-                "',stock='" + stock.Text +
-                "',discountPercentage='" + discount.Text +
-                "',brand='" + brand.Text +
-                "',category='" + category.Text +
-                "' where id=" + Convert.ToInt32(id.Text), con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GridView1.EditIndex = -1;
-            ShowData();
+            }
+            finally
+            {
+                con.Close();
+
+            }
         }
         protected void GridView1_RowCancelingEdit(object sender, System.Web.UI.WebControls.GridViewCancelEditEventArgs e)
         {
@@ -90,17 +121,29 @@ namespace BW4
         {
             dt = new DataTable();
             con = new SqlConnection(connectionString);
-            con.Open();
-            adapt = new SqlDataAdapter("" +
-
-                "Select id, title, price,description,  category, brand, discountPercentage, images, stock from Products", con);
-            adapt.Fill(dt);
-            if (dt.Rows.Count > 0)
+            try
             {
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
+                con.Open();
+                adapt = new SqlDataAdapter("" +
+
+                    "Select id, title, price,description,  category, brand, discountPercentage, images, stock from Products", con);
+                adapt.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    GridView1.DataSource = dt;
+                    GridView1.DataBind();
+                }
             }
-            con.Close();
+            catch (Exception ex)
+            {
+                ErrorBox.Visible = true;
+                lbl_error.Text = "Error: " + ex.Message;
+            }
+            finally
+            {
+                con.Close();
+
+            }
         }
 
         public int ValidateDiscount(string discount)

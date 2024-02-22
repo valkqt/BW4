@@ -1,102 +1,94 @@
-﻿.BackOfficeWrapper {
-    background-color: pink;
-    width: 80%;
+﻿.BackOffice {
     margin: 0 auto;
     padding: 1rem;
-    background: rgb(241,210,223);
-    background: radial-gradient(circle, rgba(241,210,223,1) 0%, rgba(238,174,202,1) 100%);
 }
 
 
-.BackButton {
-    background-color: #ed8e8c;
-    border: 1px solid #c45653;
-    border-radius: 3px;
-    padding: 0.25rem 0.75rem;
-    width: 80px;
-}
-
-    .BackButton:hover {
-        background-color: #c45653;
-        color: white;
-    }
-
-    td {
+    td, th {
         text-align: center;
     }
 
-    .AlertMsg {
+    .BackOffice .AlertMsg {
         width: 80%;
         margin: 0 auto;
 
     }
 
-.BackButtonsFlex {
+.BackOffice .TableButtonsBox {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-
-.BackFlexContainer {
-    display: flex;
-    gap: 1rem;
+.BackOffice .PrimaryButton {
+    background-color: #d90700;
+    color: white;
+    margin: 0 4px;
 }
 
-.BackInputContainer input {
-    display: block;
+
+
+.BackOffice .InputStyle {
+    background-color: #fffaeb;
+    border-color: #2b161b;
+    box-shadow: inset 0px 0px 1px #2b161b;
 }
 
-.BackImage {
+    .BackOffice .InputStyle:focus {
+        transition: 0.4s;
+        box-shadow: 0px 0px 6px #2b161b;
+        outline: 0;
+    }
+
+.BackOffice .TableImg {
     height: 100px;
     width: 100px;
     object-fit: contain;
 }
 
-.BackTable {
+.BackOffice .TableMain {
     margin: 0 auto;
-    width: 80%;
+    min-width: 80%;
+    max-width: 80%;
     margin-bottom: 1rem;
 }
 
-.BackSuccessAlert {
+.GridContainer {
+    overflow-x: scroll;
 }
 
-.BackAlert {
+.BackOffice .GenericAlert {
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
 }
 
-.BackTitleCase {
+.BackOffice .Capitalized {
     text-transform: capitalize;
 }
 
-.BackPseudoElement::after {
+.BackOffice .PseudoPercent::after {
     content: "%";
 }
 
-.BackPseudoElementEuro::after {
+.BackOffice .PseudoEuro::after {
     content: "€";
 }
 
-.BackAddButtonBox {
-    display: flex;
-    justify-content: flex-end;
+.BackOffice .AddProductContainer {
     width: 80%;
     margin: 0 auto;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
-.BackAddInputBox {
+.BackOffice .AddInputField {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
 }
 
-Pepe {
-    display: inline-block;
-    min-width: 100px;
+.BackOffice .EditInput {
+    width: 100%
 }
-
