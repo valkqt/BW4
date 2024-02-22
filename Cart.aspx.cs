@@ -18,7 +18,7 @@ namespace BW4
 
         private void PopolaCarrello()
         {
-            List<Product> carrello = Session["Cart"] as List<Product>;
+            List<Global.Product> carrello = Session["Cart"] as List<Global.Product>;
 
             if (carrello == null || carrello.Count == 0)
             {
@@ -30,18 +30,19 @@ namespace BW4
                 rptCarrello.DataSource = carrello;
                 rptCarrello.DataBind();
 
-                decimal totale = carrello.Sum(p => p.Price * p.Quantity);
+                decimal totale = carrello.Sum(p => (decimal)p.price * p.quantity);
                 lblTotale.Text = totale.ToString("0.00");
             }
         }
+
         protected void DecrementaQuantita(object sender, EventArgs e)
         {
             LinkButton btnDecrementa = (LinkButton)sender;
             int indice = int.Parse(btnDecrementa.CommandArgument);
 
-            List<Product> carrello = Session["Cart"] as List<Product>;
+            List<Global.Product> carrello = Session["Cart"] as List<Global.Product>;
 
-            carrello[indice].Quantity--;
+            carrello[indice].quantity--;
 
             PopolaCarrello();
         }
@@ -51,9 +52,9 @@ namespace BW4
             LinkButton btnIncrementa = (LinkButton)sender;
             int indice = int.Parse(btnIncrementa.CommandArgument);
 
-            List<Product> carrello = Session["Cart"] as List<Product>;
+            List<Global.Product> carrello = Session["Cart"] as List<Global.Product>;
 
-            carrello[indice].Quantity++;
+            carrello[indice].quantity++;
 
             PopolaCarrello();
         }
@@ -63,13 +64,13 @@ namespace BW4
             LinkButton btnElimina = (LinkButton)sender;
             int indice = int.Parse(btnElimina.CommandArgument);
 
-            List<Product> carrello = Session["Cart"] as List<Product>;
+            List<Global.Product> carrello = Session["Cart"] as List<Global.Product>;
 
             carrello.RemoveAt(indice);
 
             PopolaCarrello();
+            Response.Redirect("/Cart.aspx");
         }
-
 
         protected void btnProcediAcquisto_Click(object sender, EventArgs e)
         {
@@ -78,4 +79,3 @@ namespace BW4
         }
     }
 }
-
