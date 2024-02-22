@@ -17,7 +17,7 @@ namespace BW4
         }
         private void ShowProductsInSummary()
         {
-            List<Product> cart = Session["Cart"] as List<Product>;
+            List<Global.Product> cart = Session["Cart"] as List<Global.Product>;
 
             if (cart == null || cart.Count == 0)
             {
@@ -29,14 +29,14 @@ namespace BW4
                 rptProdottiRiepilogo.DataSource = cart;
                 rptProdottiRiepilogo.DataBind();
 
-                decimal total = cart.Sum(p => p.Price * p.Quantity);
-                decimal shoppingFee = new Random().Next(0, 6); // Numero casuale da 0 a 5 per la shopping fee
+                double total = cart.Sum(p => p.price * p.quantity);
+                double shoppingFee = new Random().Next(0, 6); // Numero casuale da 0 a 5 per la shopping fee
 
                 lblTotaleRiepilogo.Text = total.ToString("0.00");
                 lblShippingFee.Text = shoppingFee.ToString("0.00");
 
                 // Calcola e mostra il totale (subtotal + shopping fee)
-                decimal grandTotal = total + shoppingFee;
+                double grandTotal = total + shoppingFee;
                 lblGrandTotal.Text = grandTotal.ToString("0.00");
             }
         }
