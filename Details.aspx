@@ -20,7 +20,7 @@
                 </div>
                 <asp:Label ID="lblDescription" runat="server" CssClass="mt-2" />
                 <div class="d-flex mt-3">
-                    <input type="number" id="txtQuantity" runat="server" value="1" size="4" class="me-2 text-center rounded-1 fs-6" />
+                    <input type="number" id="txtQuantity" runat="server" value="1" class="me-2 text-center rounded-1 fs-6" style="width: 4em !important;" min="0" />
                     <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" CssClass="btn btn-primary me-2" OnClick="btnAddToCart_Click" />
                     <a href="/Home.aspx" class="btn btn-danger">Back to Home</a>
                 </div>
