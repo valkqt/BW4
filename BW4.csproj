@@ -182,7 +182,9 @@
       <DependentUpon>BackOffice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BackOffice.aspx.designer.cs">
+	  <Compile Include="Avvio.cs" />
+
+	  <Compile Include="BackOffice.aspx.designer.cs">
       <DependentUpon>BackOffice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cart.aspx.cs">
@@ -229,7 +231,9 @@
       <DependentUpon>Template.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Template.Master.designer.cs">
+	  <Compile Include="Queries.cs" />
+
+	  <Compile Include="Template.Master.designer.cs">
       <DependentUpon>Template.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
