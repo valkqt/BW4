@@ -1,0 +1,101 @@
+﻿.BackOfficeWrapper {
+    background-color: pink;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+    background: rgb(241,210,223);
+    background: radial-gradient(circle, rgba(241,210,223,1) 0%, rgba(238,174,202,1) 100%);
+}
+
+
+.BackButton {
+    background-color: #ed8e8c;
+    border: 1px solid #c45653;
+    border-radius: 3px;
+    padding: 0.25rem 0.75rem;
+    width: 80px;
+}
+
+    .BackButton:hover {
+        background-color: #c45653;
+        color: white;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    .AlertMsg {
+        width: 80%;
+        margin: 0 auto;
+
+    }
+
+.BackButtonsFlex {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.BackFlexContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.BackInputContainer input {
+    display: block;
+}
+
+.BackImage {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.BackTable {
+    margin: 0 auto;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.BackSuccessAlert {
+}
+
+.BackAlert {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.BackTitleCase {
+    text-transform: capitalize;
+}
+
+.BackPseudoElement::after {
+    content: "%";
+}
+
+.BackPseudoElementEuro::after {
+    content: "€";
+}
+
+.BackAddButtonBox {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.BackAddInputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+Pepe {
+    display: inline-block;
+    min-width: 100px;
+}
