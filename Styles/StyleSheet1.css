@@ -1,12 +1,12 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 body {
     font-family: "Open Sans", sans-serif;
+    background-color : blanchedalmond;
 }
 
  /* NAVBAR */
 .navbar {
-    background: rgb(241,210,223);
-    background: radial-gradient(circle, rgba(241,210,223,1) 0%, rgba(238,174,202,1) 100%);
+    background: rgb(255 231 243);
 }
 
 .nav-link, .dropdown-item {
