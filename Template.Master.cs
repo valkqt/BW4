@@ -14,7 +14,7 @@ namespace BW4
         {
             if (Session["cart"] != null)
             {
-                int itemCount = ((List<Product>)Session["cart"]).Count;
+                int itemCount = ((List<Global.Product>)Session["cart"]).Count;
                 cartCounter.InnerText = itemCount.ToString();
                 if(cartCounter.InnerText == "0")
                 {
