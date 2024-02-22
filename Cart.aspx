@@ -12,8 +12,10 @@
                     <ItemTemplate>
                         <div class="card me-2 mb-2">
                             <div class="card-body d-flex align-items-center flex-row justify-content-between">
-                                <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" width="100" height="100" />
-                                <span class="fw-bold fs-5 text-danger"><%# Eval("title") %></span>
+                                <a href='<%# "/Details.aspx/?productId=" + Eval("id") %>' style="text-decoration: none;">
+                                    <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" width="100" height="100" />
+                                </a>
+                                <a href='<%# "/Details.aspx/?productId=" + Eval("id") %>' class="fw-bold fs-5 text-danger" style="text-decoration: none;"><%# Eval("title") %></a>
                                 <span class="">$<%# Eval("price", "{0:F2}") %></span>
                                 <span class="">
                                     <asp:LinkButton runat="server" OnClick="DecrementaQuantita" CommandArgument='<%# Container.ItemIndex %>' CssClass="btn btn-outline-secondary btn-sm">
@@ -44,13 +46,16 @@
                 <div class="card">
                     <div class="list-group list-group-flush">
                         <ul class="p-0 mb-0">
-                            <li class="fs-5 fw-bold list-group-item">Totale Carrello:</li>
+                            <li class="fs-5 fw-bold list-group-item">Cart total:</li>
                             <li class="fs-5 list-group-item"><span class="me-2">$</span><asp:Label ID="lblTotale" runat="server"></asp:Label></li>
-                            <li class="list-group-item">Hai un coupon?</li>
+                            <li class="list-group-item">Do you have a coupon?</li>
                         </ul>
                     </div>
                 </div>
-                <asp:Button ID="btnProcediAcquisto" runat="server" Text="PROCEDI ALL'ACQUISTO" CssClass="mt-2 w-100 btn btn-danger p-3 fs-4" />
+                <a href="Checkout.aspx" class="mt-2 w-100 btn btn-danger p-3 fs-4">
+    PROCEED TO CHECKOUT
+</a>
+
             </div>
         </div>
     </div>

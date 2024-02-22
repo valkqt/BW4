@@ -42,7 +42,10 @@ namespace BW4
 
             List<Global.Product> carrello = Session["Cart"] as List<Global.Product>;
 
-            carrello[indice].quantity--;
+            if (carrello[indice].quantity > 1)
+            {
+                carrello[indice].quantity--;
+            }
 
             PopolaCarrello();
         }
