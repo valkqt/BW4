@@ -74,11 +74,5 @@ namespace BW4
             PopolaCarrello();
             Response.Redirect("/Cart.aspx");
         }
-
-        protected void btnProcediAcquisto_Click(object sender, EventArgs e)
-        {
-            // c'è da creare la apgina checkout ancora
-            // Response.Redirect("/Checkout.aspx");
-        }
     }
 }

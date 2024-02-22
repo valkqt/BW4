@@ -47,11 +47,11 @@
                     <ItemTemplate>
                         <div class="card me-2 mb-2">
                             <div class="card-body d-flex align-items-center flex-row justify-content-between">
-                                <img src='<%# Eval("ImageUrl") %>' alt='<%# Eval("Title") %>' class="img-fluid" width="100" height="100" />
-                                <span class="fw-bold fs-6 text-danger"><%# Eval("Title") %></span>
-                                <span class="">$<%# Eval("Price", "{0:F2}") %></span>
-                                <span class="">Quantity: <%# Eval("Quantity") %></span>
-                                <span>Tot: $<%# (Convert.ToDecimal(Eval("Price")) * Convert.ToInt32(Eval("Quantity"))).ToString("0.00") %></span>
+                                <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" width="100" height="100" />
+                                <span class="fw-bold fs-6 text-danger"><%# Eval("title") %></span>
+                                <span class="">$<%# Eval("price", "{0:F2}") %></span>
+                                <span class="">Quantity: <%# Eval("quantity") %></span>
+                                <span>Tot: $<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("0.00") %></span>
                             </div>
                         </div>
                     </ItemTemplate>
