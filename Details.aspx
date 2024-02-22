@@ -25,8 +25,14 @@
 
         </div>
 
-        <div class="d-flex justify-content-center mt-3">
-            <h3 class="SectionTitle">Related Products</h3>
+        <div class="container mt-3">
+            <div class="d-flex justify-content-center">
+                <h3 class="SectionTitle">Related Products</h3>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="SectionBorder">
+                </div>
+            </div>
         </div>
 
         <div class="row">
