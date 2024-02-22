@@ -13,6 +13,7 @@ namespace BW4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 int productId = Convert.ToInt32(Request.QueryString["productId"]);
@@ -115,6 +116,7 @@ namespace BW4
             return category;
         }
 
+
         private List<Product> GetRandomProductsByCategory(string category, int count)
         {
             List<Product> products = new List<Product>();
@@ -137,7 +139,7 @@ namespace BW4
                             Brand = reader["brand"].ToString(),
                             Category = reader["category"].ToString(),
                             Title = reader["title"].ToString(),
-                            Price = Convert.ToDecimal(reader["price"]),
+                            Price = Math.Round(Convert.ToDecimal(reader["price"]), 2),
                             Description = reader["description"].ToString(),
                             ImageUrl = reader["images"].ToString()
                         };
@@ -171,5 +173,6 @@ namespace BW4
 
             Session["Cart"] = cart;
         }
+
     }
 }
