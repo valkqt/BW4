@@ -173,10 +173,18 @@ namespace BW4
 
             List<Global.Product> cart = (List<Global.Product>)Session["Cart"];
 
-            cart.Add(product);
+            Global.Product existingProduct = cart.FirstOrDefault(p => p.id == product.id);
+
+            if (existingProduct != null)
+            {
+                existingProduct.quantity += product.quantity;
+            }
+            else
+            {
+                cart.Add(product);
+            }
 
             Session["Cart"] = cart;
         }
-
     }
 }
