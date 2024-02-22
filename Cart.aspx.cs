@@ -68,6 +68,7 @@ namespace BW4
             carrello.RemoveAt(indice);
 
             PopolaCarrello();
+            Response.Redirect("/Cart.aspx");
         }
 
 

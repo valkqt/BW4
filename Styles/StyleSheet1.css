@@ -69,6 +69,17 @@ body {
     background-color: blanchedalmond;
 }
 
+.cart-counter {
+    background-color: azure;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    top: -7px;
+    right: -14px;
+    padding: 0 5px;
+    font-size: 0.7em;
+}
+
 .btn:hover {
     box-shadow: 0.2rem 0.2rem 0 black;
     transform: translate(-0.2rem, -0.2rem);
