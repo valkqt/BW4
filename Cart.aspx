@@ -13,7 +13,7 @@
                         <div class="card me-2 mb-2">
                             <div class="card-body d-flex align-items-center flex-row justify-content-between">
                                 <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" width="100" height="100" />
-                                <span class="fw-bold fs-5 text-danger"><%# Eval("title") %></span>
+                                <a href='<%# "/Details.aspx/?productId=" + Eval("id") %>' class="fw-bold fs-5 text-danger" style="text-decoration: none;"><%# Eval("title") %></a>
                                 <span class="">$<%# Eval("price", "{0:F2}") %></span>
                                 <span class="">
                                     <asp:LinkButton runat="server" OnClick="DecrementaQuantita" CommandArgument='<%# Container.ItemIndex %>' CssClass="btn btn-outline-secondary btn-sm">
