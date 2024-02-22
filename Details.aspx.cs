@@ -20,7 +20,7 @@ namespace BW4
 
                 string connectionString = ConfigurationManager.ConnectionStrings["Products"].ConnectionString;
 
-                string query = "SELECT brand, category, title, price, description, images FROM Products WHERE id = @id";
+                string query = "SELECT brand, category, title, price, description, images, discountPercentage FROM Products WHERE id = @id";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -36,18 +36,21 @@ namespace BW4
                             lblCategory.Text = char.ToUpper(upperCategory[0]) + upperCategory.Substring(1);
                             lblBrand.Text = reader["brand"].ToString();
                             lblTitle.Text = reader["title"].ToString();
-                            lblPrice.Text = "$" + Convert.ToDecimal(reader["price"]).ToString("0.00");
+                            double price = Convert.ToDouble(reader["price"]);
+                            lblPrice.Text = "$" + price.ToString("0.00");
                             lblDescription.Text = reader["description"].ToString();
                             imgProduct.ImageUrl = reader["images"].ToString();
+                            double discountPercentage = Convert.ToDouble(reader["discountPercentage"]);
+                            lblDiscounted.Text = "$" + (price - (price * (discountPercentage / 100))).ToString("0.00");
                         }
                         reader.Close();
                     }
                 }
 
-                //questa è la loigca per le 4 cards randomiche di sotto
+                // Questa è la logica per le 4 cards randomiche di sotto
                 string category = GetProductCategory(productId);
 
-                List<Product> relatedProducts = GetRandomProductsByCategory(category, 4);
+                List<Global.Product> relatedProducts = GetRandomProductsByCategory(category, 4);
 
                 RelatedRepeater.DataSource = relatedProducts;
                 RelatedRepeater.DataBind();
@@ -61,7 +64,7 @@ namespace BW4
             int quantity = int.Parse(txtQuantity.Value);
 
             string connectionString = ConfigurationManager.ConnectionStrings["Products"].ConnectionString;
-            string query = "SELECT brand, category, title, price, description, images FROM Products WHERE id = @id";
+            string query = "SELECT brand, category, title, price, description, images, discountPercentage FROM Products WHERE id = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -72,16 +75,17 @@ namespace BW4
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        Product product = new Product
+                        Global.Product product = new Global.Product
                         {
-                            Id = productId,
-                            Brand = reader["brand"].ToString(),
-                            Category = reader["category"].ToString(),
-                            Title = reader["title"].ToString(),
-                            Price = Convert.ToDecimal(reader["price"]),
-                            Description = reader["description"].ToString(),
-                            ImageUrl = reader["images"].ToString(),
-                            Quantity = quantity
+                            id = productId,
+                            brand = reader["brand"].ToString(),
+                            category = reader["category"].ToString(),
+                            title = reader["title"].ToString(),
+                            price = Convert.ToDouble(reader["price"]),
+                            description = reader["description"].ToString(),
+                            thumbnail = reader["images"].ToString(),
+                            quantity = quantity,
+                            discountPercentage = Convert.ToDouble(reader["discountPercentage"])
                         };
 
                         AddProductToCart(product);
@@ -117,9 +121,9 @@ namespace BW4
         }
 
 
-        private List<Product> GetRandomProductsByCategory(string category, int count)
+        private List<Global.Product> GetRandomProductsByCategory(string category, int count)
         {
-            List<Product> products = new List<Product>();
+            List<Global.Product> products = new List<Global.Product>();
             string connectionString = ConfigurationManager.ConnectionStrings["Products"].ConnectionString;
             string query = "SELECT TOP (@count) id, brand, category, title, price, description, images FROM Products WHERE category = @category ORDER BY NEWID()";
 
@@ -133,15 +137,15 @@ namespace BW4
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        Product product = new Product
+                        Global.Product product = new Global.Product
                         {
-                            Id = Convert.ToInt32(reader["id"]),
-                            Brand = reader["brand"].ToString(),
-                            Category = reader["category"].ToString(),
-                            Title = reader["title"].ToString(),
-                            Price = Math.Round(Convert.ToDecimal(reader["price"]), 2),
-                            Description = reader["description"].ToString(),
-                            ImageUrl = reader["images"].ToString()
+                            id = Convert.ToInt32(reader["id"]),
+                            brand = reader["brand"].ToString(),
+                            category = reader["category"].ToString(),
+                            title = reader["title"].ToString(),
+                            price = Math.Round(Convert.ToDouble(reader["price"]), 2),
+                            description = reader["description"].ToString(),
+                            thumbnail = reader["images"].ToString()
                         };
                         products.Add(product);
                     }
@@ -160,14 +164,14 @@ namespace BW4
         }
 
 
-        private void AddProductToCart(Product product)
+        private void AddProductToCart(Global.Product product)
         {
             if (Session["Cart"] == null)
             {
-                Session["Cart"] = new List<Product>();
+                Session["Cart"] = new List<Global.Product>();
             }
 
-            List<Product> cart = (List<Product>)Session["Cart"];
+            List<Global.Product> cart = (List<Global.Product>)Session["Cart"];
 
             cart.Add(product);
 

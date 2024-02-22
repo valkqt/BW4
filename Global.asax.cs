@@ -50,6 +50,7 @@ namespace BW4
             public string thumbnail { get; set; }
             public string[] images { get; set; }
             public double price { get; set; }
+            public int quantity { get; set; }
 
 
         }

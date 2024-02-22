@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,15 @@ namespace BW4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["cart"] != null)
+            {
+                int itemCount = ((List<Global.Product>)Session["cart"]).Count;
+                cartCounter.InnerText = itemCount.ToString();
+                if(cartCounter.InnerText == "0")
+                {
+                    cartCounter.Visible = false;
+                }
+            }
         }
     }
 }

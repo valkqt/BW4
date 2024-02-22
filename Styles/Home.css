@@ -16,13 +16,13 @@
 .TitleCaption {
     font-size: 1rem;
     font-weight: 600;
-    color: #413E65;
+    color: #2b161b;
 }
 
 .PriceCaption {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #413E65;
+    color: #2b161b;
 }
 
 .CategoryCaption {
@@ -54,12 +54,12 @@
     margin-top: 20px;
     padding: 10px;
     font-weight: bold;
-    color: #413E65;
+    color: #2b161b;
 }
 
 .SectionBorder {
     margin-bottom: 50px;
-    border-top: 5px solid #F25C54;
+    border-top: 5px solid #ef4d48;
     width: 80px;
 }
 
@@ -87,8 +87,8 @@
 .SpecialDeal {
     gap: 70px;
     padding: 30px;
-    background-image: linear-gradient(270deg, #F1CFDD, #ECAEC8);
-    color: white;
+    background-color: rgb(255 231 243);
+    color: #2b161b;
     border-radius: 2px;
 }
 

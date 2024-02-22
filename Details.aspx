@@ -14,7 +14,10 @@
                     <asp:Label ID="lblBrand" runat="server" class="fs-3 fw-bold" />
                     <asp:Label ID="lblTitle" runat="server" class="fs-3 fw-bold" />
                 </div>
-                <asp:Label ID="lblPrice" runat="server" CssClass="fs-5 fw-bold" />
+                <div class="d-flex align-items-center mt-1">
+                    <asp:Label ID="lblPrice" runat="server" CssClass="me-2 fs-6 text-decoration-line-through" />
+                    <asp:Label ID="lblDiscounted" runat="server" CssClass="fs-4 fw-bold" />
+                </div>
                 <asp:Label ID="lblDescription" runat="server" CssClass="mt-2" />
                 <div class="d-flex mt-3">
                     <input type="number" id="txtQuantity" runat="server" value="1" size="4" class="me-2 text-center rounded-1 fs-6" />
@@ -40,7 +43,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButtonDetail" CssClass="col" runat="server" OnClick="LinkButtonDetail_Click" CommandArgument='<%# Eval("id") %>'>
                         <div class="col text-center">
-                            <img src='<%# Eval("ImageUrl") %>' class="HomeImage" />
+                            <img src='<%# Eval("thumbnail") %>' class="HomeImage" />
                             <p class="CategorySub"><%# Eval("Category") %></p>
                             <h6 class="TitleCaption"><%# Eval("Title") %></h6>
                             <p class="PriceCaption">$<%# Eval("Price") %></p>
