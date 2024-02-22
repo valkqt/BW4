@@ -22,23 +22,25 @@ namespace BW4
                     "(" +
                     "id int NOT NULL IDENTITY," +
                     "title varchar(100) NOT NULL UNIQUE," +
-                    "description varchar(max)," +
+                    "description varchar(max) DEFAULT 'No description for this product yet'," +
                     "brand varchar(32)," +
                     "category varchar(32) NOT NULL," +
-                    "rating decimal(3,1)," +
-                    "discountPercentage int," +
-                    "stock int NOT NULL," +
+                    "rating decimal(3,1) DEFAULT 0," +
+                    "discountPercentage int DEFAULT 0," +
+                    "stock int DEFAULT 0," +
                     "thumbnail varchar(max)," +
                     "images varchar(max)," +
                     "price money NOT NULL," +
-                    "PRIMARY KEY (id));", conn);
+                    "CONSTRAINT CK_Discount CHECK (discountPercentage between 0 and 99), " +
+                    "CONSTRAINT CK_Price CHECK (price>0), " +
+                    "CONSTRAINT CK_Stock CHECK (stock>0)," +
+                "PRIMARY KEY (id)); ", conn);
                 create.ExecuteNonQuery();
 
             }
 
             catch
             {
-                // Response.Write("Pepe :(");
 
             }
             finally
@@ -50,7 +52,6 @@ namespace BW4
             {
                 conn.Open();
 
-                string ProductString = "";
 
                 foreach (Global.Product product in Global.Storage.storage)
                 {
@@ -72,9 +73,9 @@ namespace BW4
                 }
 
             }
-            catch (Exception ex)
+            catch
             {
-                // Response.Write($"Si è verificato un errore di tipo {ex.GetType().Name}: {ex.Message}");
+                //Response.Write($"Si è verificato un errore di tipo {ex.GetType().Name}: {ex.Message}");
             }
             finally
             {
