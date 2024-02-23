@@ -99,3 +99,107 @@ body {
     background-color: #d90700;
 }
 
+/*DETAILS PAGE*/
+
+.imgDetails {
+    max-width: 20em;
+    height: auto !important;
+    max-height: 20em !important;
+}
+
+/*BACKOFFICE PAGE*/
+
+.BackOffice {
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+
+td, th {
+    text-align: center;
+}
+
+.BackOffice .AlertMsg {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.BackOffice .TableButtonsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.BackOffice .PrimaryButton {
+    background-color: #d90700;
+    color: white;
+    margin: 0 4px;
+}
+
+
+
+.BackOffice .InputStyle {
+    background-color: #fffaeb;
+    border-color: #2b161b;
+    box-shadow: inset 0px 0px 1px #2b161b;
+}
+
+    .BackOffice .InputStyle:focus {
+        transition: 0.4s;
+        box-shadow: 0px 0px 6px #2b161b;
+        outline: 0;
+    }
+
+.BackOffice .TableImg {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.BackOffice .TableMain {
+    margin: 0 auto;
+    min-width: 80%;
+    max-width: 80%;
+    margin-bottom: 1rem;
+}
+
+.GridContainer {
+    overflow-x: scroll;
+}
+
+.BackOffice .GenericAlert {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.BackOffice .Capitalized {
+    text-transform: capitalize;
+}
+
+.BackOffice .PseudoPercent::after {
+    content: "%";
+}
+
+.BackOffice .PseudoEuro::after {
+    content: "€";
+}
+
+.BackOffice .AddProductContainer {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.BackOffice .AddInputField {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.BackOffice .EditInput {
+    width: 100%
+}
+
