@@ -29,7 +29,7 @@ namespace BW4
                 rptProdottiRiepilogo.DataSource = cart;
                 rptProdottiRiepilogo.DataBind();
 
-                double total = cart.Sum(p => p.price * p.quantity);
+                double total = cart.Sum(p => (p.price - (p.price * p.discountPercentage / 100)) * p.quantity);
                 double shoppingFee = new Random().Next(0, 6);
 
                 lblTotaleRiepilogo.Text = total.ToString("0.00");

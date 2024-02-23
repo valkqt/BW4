@@ -49,9 +49,9 @@
                             <div class="card-body d-flex align-items-center flex-row justify-content-between">
                                 <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" width="100" height="100" />
                                 <span class="fw-bold fs-6 text-danger"><%# TruncateTitle(Eval("title").ToString(), 15) %></span>
-                                <span>$<%# Eval("price", "{0:F2}") %></span>
+                                <span class=""><%# "$" + (Convert.ToDecimal(Eval("price")) - (Convert.ToDecimal(Eval("price")) * (Convert.ToDecimal(Eval("discountPercentage")) / 100))).ToString("0.00") %></span>
                                 <span>Quantity: <%# Eval("quantity") %></span>
-                                <span>Tot: $<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("0.00") %></span>
+                                <span>Tot: $<%# ((Convert.ToDecimal(Eval("price")) - (Convert.ToDecimal(Eval("price")) * (Convert.ToDecimal(Eval("discountPercentage")) / 100))) * Convert.ToInt32(Eval("quantity"))).ToString("0.00") %></span>
                             </div>
                         </div>
                     </ItemTemplate>
