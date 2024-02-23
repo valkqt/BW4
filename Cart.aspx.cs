@@ -30,7 +30,7 @@ namespace BW4
                 rptCarrello.DataSource = carrello;
                 rptCarrello.DataBind();
 
-                decimal totale = carrello.Sum(p => (decimal)p.price * p.quantity);
+                decimal totale = carrello.Sum(p => (decimal)p.price * p.quantity - ((decimal)p.price * p.quantity * (decimal)p.discountPercentage / 100));
                 lblTotale.Text = totale.ToString("0.00");
             }
         }

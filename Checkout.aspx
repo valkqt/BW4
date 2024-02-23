@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="BW4.Checkout" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Checkout</title>
+    <title>PAGAH - Checkout</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -15,7 +15,7 @@
                     <asp:TextBox ID="txtUsernameEmail" runat="server" CssClass="form-control mb-2" placeholder="Email Address" required="true"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvUsernameEmail" runat="server" ControlToValidate="txtUsernameEmail" Display="Dynamic" ErrorMessage="You have to provide an email." ForeColor="Red" />
 
-                    <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control mb-2" placeholder=" First name" required="true"></asp:TextBox>
+                    <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control mb-2" placeholder="First name" required="true"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ControlToValidate="txtFirstName" Display="Dynamic" ErrorMessage="You have to provide a first name." ForeColor="Red" />
 
                     <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control mb-2" placeholder="Last name" required="true"></asp:TextBox>
@@ -48,10 +48,10 @@
                         <div class="card me-2 mb-2">
                             <div class="card-body d-flex align-items-center flex-row justify-content-between">
                                 <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" width="100" height="100" />
-                                <span class="fw-bold fs-6 text-danger"><%# Eval("title") %></span>
-                                <span class="">$<%# Eval("price", "{0:F2}") %></span>
-                                <span class="">Quantity: <%# Eval("quantity") %></span>
-                                <span>Tot: $<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("0.00") %></span>
+                                <span class="fw-bold fs-6 text-danger"><%# TruncateTitle(Eval("title").ToString(), 15) %></span>
+                                <span class=""><%# "$" + (Convert.ToDecimal(Eval("price")) - (Convert.ToDecimal(Eval("price")) * (Convert.ToDecimal(Eval("discountPercentage")) / 100))).ToString("0.00") %></span>
+                                <span>Quantity: <%# Eval("quantity") %></span>
+                                <span>Tot: $<%# ((Convert.ToDecimal(Eval("price")) - (Convert.ToDecimal(Eval("price")) * (Convert.ToDecimal(Eval("discountPercentage")) / 100))) * Convert.ToInt32(Eval("quantity"))).ToString("0.00") %></span>
                             </div>
                         </div>
                     </ItemTemplate>
