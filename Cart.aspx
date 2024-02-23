@@ -16,7 +16,7 @@
                                     <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" style="max-width: 100px; max-height: 100px" />
                                 </a>
                                 <a href='<%# "/Details.aspx/?productId=" + Eval("id") %>' class="fw-bold fs-5 text-danger" style="text-decoration: none;"><%# Eval("title") %></a>
-                                <span class="">$<%# Eval("price", "{0:F2}") %></span>
+                                <span class=""><%# "$" + (Convert.ToDecimal(Eval("price")) - (Convert.ToDecimal(Eval("price")) * (Convert.ToDecimal(Eval("discountPercentage")) / 100))).ToString("0.00") %></span>
                                 <span class="">
                                     <asp:LinkButton runat="server" OnClick="DecrementaQuantita" CommandArgument='<%# Container.ItemIndex %>' CssClass="btn btn-outline-secondary btn-sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
@@ -30,7 +30,7 @@
 </svg>
                                     </asp:LinkButton>
                                 </span>
-                                <span>Tot: $<%# (Convert.ToDecimal(Eval("price")) * Convert.ToInt32(Eval("quantity"))).ToString("0.00") %></span>
+                                <span>Tot: $<%# ((Convert.ToDecimal(Eval("price")) - (Convert.ToDecimal(Eval("price")) * (Convert.ToDecimal(Eval("discountPercentage")) / 100))) * Convert.ToInt32(Eval("quantity"))).ToString("0.00") %></span>
                                 <asp:LinkButton CssClass="btn btn-outline-secondary btn-sm rounded-circle small p-1 d-flex justify-content-center align-content-center" runat="server" OnClick="EliminaProdotto" CommandArgument='<%# Container.ItemIndex %>'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
