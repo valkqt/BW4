@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace BW4
@@ -47,7 +45,6 @@ namespace BW4
                     }
                 }
 
-                // Questa è la logica per le 4 cards randomiche di sotto
                 string category = GetProductCategory(productId);
 
                 List<Global.Product> relatedProducts = GetRandomProductsByCategory(category, 4);
@@ -143,10 +140,11 @@ namespace BW4
                             brand = reader["brand"].ToString(),
                             category = reader["category"].ToString(),
                             title = reader["title"].ToString(),
-                            price = Math.Round(Convert.ToDouble(reader["price"]), 2),
+                            price = Convert.ToDouble(reader["price"]),
                             description = reader["description"].ToString(),
                             thumbnail = reader["images"].ToString()
                         };
+                        Console.WriteLine(product.price);
                         products.Add(product);
                     }
                     reader.Close();

@@ -22,8 +22,8 @@
                 <asp:Label ID="lblDescription" runat="server" CssClass="mt-2" />
                 <div class="d-flex mt-3">
                     <input type="number" id="txtQuantity" runat="server" value="1" class="me-2 text-center rounded-1 fs-6" style="width: 4em !important;" min="1" />
-                    <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" CssClass="btn btn-primary me-2" OnClick="btnAddToCart_Click" />
-                    <a href="/Home.aspx" class="btn btn-danger">Back to Home</a>
+                    <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" CssClass="btn btn-login text-white fw-bold me-2" OnClick="btnAddToCart_Click" />
+                    <a href="/Home.aspx" class="btn btn-danger fw-bold">Back to Home</a>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                             <img src='<%# Eval("thumbnail") %>' class="HomeImage" />
                             <p class="CategorySub"><%# Eval("Category") %></p>
                             <h6 class="TitleCaption"><%# Eval("Title") %></h6>
-                            <p class="PriceCaption">$<%# Eval("Price") %></p>
+                            <p class="PriceCaption">$<%# Eval("price", "{0:0.00}") %></p>
                         </div>
                     </asp:LinkButton>
                 </ItemTemplate>
@@ -55,6 +55,4 @@
         </div>
     </div>
 
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>

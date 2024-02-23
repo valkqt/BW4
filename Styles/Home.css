@@ -1,4 +1,6 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); 
+
+body {
     background-color: #FDF6F6;
     min-width: 360px;
 }
@@ -206,7 +208,8 @@ a{
     object-fit: cover;
 }
 
-#heroText{
-    padding: 5em 8em;
-    font-family: fantasy;
+#heroText {
+    padding: 6em 10em;
+    font-family: "Anton", sans-serif;
+    font-weight: bold;
 }

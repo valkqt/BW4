@@ -1,5 +1,6 @@
 ﻿#form-container {
     background-color: blanchedalmond;
+    height: 100vh;
 }
 
 .textbox {
@@ -8,12 +9,12 @@
     box-shadow: inset 0px 0px 2px #2b161b;
 }
 
-    .textbox:focus {
-        transition: 0.4s;
-        background-color: pink;
-        box-shadow: 0px 0px 6px #2b161b;
-        outline: 0;
-    }
+.textbox:focus {
+    transition: 0.4s;
+    background-color: pink;
+    box-shadow: 0px 0px 6px #2b161b;
+    outline: 0;
+}
 
 .btn-login {
     background-color: #8c0b5c;

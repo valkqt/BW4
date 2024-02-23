@@ -107,8 +107,11 @@ body {
     max-height: 20em !important;
 }
 
-/*BACKOFFICE PAGE*/
+.btnAddToCard {
+    background-color: #8c0b5c;
+}
 
+/*BACKOFFICE PAGE*/
 .BackOffice {
     margin: 0 auto;
     padding: 1rem;
