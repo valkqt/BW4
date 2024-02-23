@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.AspNet.FriendlyUrls;
 
 namespace BW4
 {
@@ -22,7 +17,7 @@ namespace BW4
                 Session["password"] = null;
                 Response.Redirect("Home.aspx");
             }
-            // Avvio.Start();
+
             if (!IsPostBack)
             {
                 BindDataNewArrivals(Queries.NewArrivals);
@@ -48,9 +43,7 @@ namespace BW4
 
         private void BindDataCategories(string query)
         {
-            // Connect to database
             string connectionString = ConfigurationManager.ConnectionStrings["Products"].ToString();
-            // Get connection
             SqlConnection conn = new SqlConnection(connectionString);
 
             try
@@ -80,9 +73,7 @@ namespace BW4
     
         private void BindDataNewArrivals(string query)
         {
-            // Connect to database
             string connectionString = ConfigurationManager.ConnectionStrings["Products"].ToString();
-            // Get connection
             SqlConnection conn = new SqlConnection(connectionString);
 
             try
@@ -109,9 +100,7 @@ namespace BW4
         }
         private void BindDataSpecialDeals(string query)
         {
-            // Connect to database
             string connectionString = ConfigurationManager.ConnectionStrings["Products"].ToString();
-            // Get connection
             SqlConnection conn = new SqlConnection(connectionString);
 
             try

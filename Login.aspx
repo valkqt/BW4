@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="form-container" class="text-center py-5 mt-5 mx-auto">
+        <div id="form-container" class="text-center py-5 mx-auto">
             <% if (Session["username"] == null)
                 { %>
             <h1>LOGIN:</h1>
