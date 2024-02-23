@@ -30,17 +30,26 @@ namespace BW4
                 rptProdottiRiepilogo.DataBind();
 
                 double total = cart.Sum(p => p.price * p.quantity);
-                double shoppingFee = new Random().Next(0, 6); // Numero casuale da 0 a 5 per la shopping fee
+                double shoppingFee = new Random().Next(0, 6);
 
                 lblTotaleRiepilogo.Text = total.ToString("0.00");
                 lblShippingFee.Text = shoppingFee.ToString("0.00");
 
-                // Calcola e mostra il totale (subtotal + shopping fee)
                 double grandTotal = total + shoppingFee;
                 lblGrandTotal.Text = grandTotal.ToString("0.00");
             }
         }
-
+        public string TruncateTitle(string title, int maxLength)
+        {
+            if (title.Length > maxLength)
+            {
+                return title.Substring(0, maxLength) + "...";
+            }
+            else
+            {
+                return title;
+            }
+        }
 
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
