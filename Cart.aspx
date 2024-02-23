@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="BW4.Cart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Carrello</title>
+    <title>PAGAH - Cart</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,7 +13,7 @@
                         <div class="card me-2 mb-2">
                             <div class="card-body d-flex align-items-center flex-row justify-content-between">
                                 <a href='<%# "/Details.aspx/?productId=" + Eval("id") %>' style="text-decoration: none;">
-                                    <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" width="100" height="100" />
+                                    <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="img-fluid" style="max-width: 100px; max-height: 100px" />
                                 </a>
                                 <a href='<%# "/Details.aspx/?productId=" + Eval("id") %>' class="fw-bold fs-5 text-danger" style="text-decoration: none;"><%# Eval("title") %></a>
                                 <span class="">$<%# Eval("price", "{0:F2}") %></span>
