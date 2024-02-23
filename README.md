@@ -6,7 +6,7 @@ Questa applicazione web dev'essere inizializzata da Visual Studio con i servizi 
 Prima di avviare l'applicazione è necessario:
 
 1) Aprire SSMS e creare un nuovo database chiamato "Ecommerce"
-2) Nel file Web.Config, modificare la Connection String che rappresenta la connessione locale al database. Dentro il tag <configuration>:
+2) Nel file Web.Config, modificare la Connection String che rappresenta la connessione locale al database. Dentro il tag 'configuration':
   ![conn](https://github.com/valkqt/BW4/assets/103358560/446e0154-09c7-46d3-9d82-73d441738472)
   "YOURCOMPUTER" rappresenta il nome del tuo computer, che dovrà essere cambiato opportunamente.
 
