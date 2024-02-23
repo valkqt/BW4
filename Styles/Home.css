@@ -68,7 +68,7 @@ body {
 .HomeImage {
     width: 180px;
     height: 150px;
-    object-fit: fill;
+    object-fit: cover;
     margin-bottom: 20px;
     border-radius: 2px;
     transform: scale(1);
@@ -92,6 +92,13 @@ body {
     background-color: rgb(255 231 243);
     color: #2b161b;
     border-radius: 2px;
+}
+
+.AdminContainer {
+    text-align: center;
+    color: #2b161b;
+    padding: 1rem 0;
+    font-weight: bold;
 }
 
 .SpecialDealImage {

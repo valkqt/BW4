@@ -79,6 +79,9 @@ namespace BW4
                 return;
             }
 
+            List<Global.Product> cart = (List<Global.Product>)Session["Cart"];
+            cart.Clear();
+            Session["Cart"] = cart;
             Response.Redirect("/Home.aspx");
         }
 

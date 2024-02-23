@@ -22,7 +22,7 @@ namespace BW4
             if (carrello == null || carrello.Count == 0)
             {
                 rptCarrello.Visible = false;
-                lblTotale.Text = "Il tuo carrello è vuoto!";
+                lblTotale.Text = "Cart is Empty";
             }
             else
             {
@@ -73,5 +73,28 @@ namespace BW4
             PopolaCarrello();
             Response.Redirect("/Cart.aspx");
         }
+
+        protected void ProceedToCheckout(object sender, EventArgs e)
+        {
+
+            List<Global.Product> carrello = Session["Cart"] as List<Global.Product>;
+
+            if (Session["Cart"] != null && carrello.Count != 0)
+            {
+                Response.Redirect("~/Checkout.aspx");
+
+            } else
+            {
+                lbl_error.Text = "Cannot proceed with checkout, cart is empty.";
+                ErrorBox.Visible = true;
+            }
+        }
+
+        public void CloseAlert(object sender, EventArgs e)
+        {
+            ErrorBox.Visible = false;
+
+        }
+
     }
 }

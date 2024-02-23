@@ -59,6 +59,16 @@ body {
     text-shadow: 2px 2px 0px #ef4d48, 3px 3px 0px rgba(0, 0, 0, 0.6);
 }
 
+.social-network {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+    .social-network a {
+        color: #2b161b;
+    }
+
 .navbar-icons svg:hover, .social-network svg:hover {
     scale: 2.0;
     transition: 0.3s;
@@ -105,10 +115,6 @@ body {
     max-width: 20em;
     height: auto !important;
     max-height: 20em !important;
-}
-
-.btnAddToCard {
-    background-color: #8c0b5c;
 }
 
 /*BACKOFFICE PAGE*/
@@ -170,7 +176,7 @@ td, th {
     overflow-x: scroll;
 }
 
-.BackOffice .GenericAlert {
+.GenericAlert {
     display: flex;
     justify-content: space-between;
     width: 100%;

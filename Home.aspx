@@ -4,17 +4,21 @@
     <title>PAGAH - Home</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+            <% if (Session["username"] != null && Session["username"].ToString() == "admin" && Session["password"] != null && Session["password"].ToString() == "admin")
+        { %>
+    <div class="AdminContainer">
+        <h1>Welcome Admin</h1>
+        <asp:Button ID="AdminButton" runat="server" Text="Go to Back Office" CssClass="btn btn-warning fw-bold" OnClick="Admin_Btn" />
+    </div>
+    <% } %>
 
     <div id="hero" class="text-center position-relative">
         <iframe src="https://www.youtube.com/embed/l8zwZZEpe0w?autoplay=1&mute=1&controls=0&fullscreen=1&start=15" id="youtube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <h1 class="text-white" id="heroText">Your personal shopping website where "Paghi e basta, non compri niente"</h1>
     </div>
 
-     <% if (Session["username"] != null && Session["username"].ToString() == "admin" && Session["password"] != null && Session["password"].ToString() == "admin")
-     { %>
-    <h1>Welcome Admin</h1>
-    <asp:Button ID="AdminButton" runat="server" Text="Admin Settings" CssClass="btn btn-warning fw-bold" OnClick="Admin_Btn" />
-    <% } %>
+
+
     <div class="container-fluid">
         <div class="d-flex justify-content-center">
             <h3 class="SectionTitle">New Arrivals</h3>
@@ -30,7 +34,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkToDetailNewArrivals" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>' CssClass="LinkButton">
                     <div class="col text-center">
-                        <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="HomeImage" />
+                        <img src='<%# Eval("images") %>' alt='<%# Eval("title") %>' class="HomeImage" />
                         <p class="CategorySub"><%# Eval ("category") %></p>
                         <h6 class="TitleCaption"><%# Eval ("title") %></h6>
                         <p class="PriceCaption">$ <%# Eval ("price") %></p>
@@ -55,7 +59,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkToDetailCategories" runat="server" OnClick="LinkToDetailClick" CommandArgument='<%# Eval("id")%>' CssClass="LinkButton">
                     <div class="col text-center mb-3">
-                        <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="HomeImage" />
+                        <img src='<%# Eval("images") %>' alt='<%# Eval("title") %>' class="HomeImage" />
                         <h6 class="CategoryCaption mb-2" style="text-transform: uppercase; color: #413E65; opacity: 0.9;"><%# Eval ("category") %></h6>
                         <div class="d-flex justify-content-center">
                             <div class="CategoryBorder"></div>
@@ -91,7 +95,7 @@
                                     onmouseout="this.style.backgroundColor='#484385'" />
                             </div>
                             <div>
-                                <img src='<%# Eval("thumbnail") %>' alt='<%# Eval("title") %>' class="SpecialDealImage" />
+                                <img src='<%# Eval("images") %>' alt='<%# Eval("title") %>' class="SpecialDealImage" />
                             </div>
                         </div>
                     </div>

@@ -7,13 +7,13 @@
                                                     id,
                                                     title, 
                                                     category,
-                                                    thumbnail,
+                                                    images,
                                                     price,
                                                     ROW_NUMBER() OVER (PARTITION BY p.category ORDER BY NEWID()) AS RowNum
                                                 FROM 
                                                     Products p
                                                 )
-                                            SELECT TOP 6 id, category, title, thumbnail, price 
+                                            SELECT TOP 6 id, category, title, images, price 
                                             FROM 
                                                 RankedProducts
                                             WHERE 

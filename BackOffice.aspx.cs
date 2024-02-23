@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
+using static System.Net.WebRequestMethods;
 
 namespace BW4
 {
@@ -191,10 +192,16 @@ namespace BW4
                 string price = add_price.Text.Replace(',', '.');
                 string stock = add_stock.Text;
 
+
                 bool valid = ValidateInputs();
                 if (!valid)
                 {
-                    throw new Exception("Risultano uno o più campi richiesti non inseriti. Campi Richiesti: Title, Price, Stock, Category");
+                    throw new Exception("One or more required fields are empty. Required fields: Title, Price, Stock, Category");
+                }
+
+                if (images == "")
+                {
+                    images = "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg";
                 }
 
                 SqlCommand insert = new SqlCommand("INSERT INTO Products (title, description, brand, category, stock, discountPercentage, thumbnail, images, price) " +
